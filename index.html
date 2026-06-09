@@ -186,22 +186,20 @@
   }
 
   .logo {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: 22px;
-    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
-    gap: 10px;
+    text-decoration: none;
   }
 
-  .logo-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 16px var(--accent);
+  .logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
+    mix-blend-mode: screen;
+    transition: opacity 0.2s;
   }
+
+  .logo:hover .logo-img { opacity: 0.85; }
 
   .nav-links {
     display: flex;
@@ -1000,8 +998,7 @@
 <nav>
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <span class="logo-dot"></span>
-      M.K <span style="color: var(--ink-dim); font-weight: 400;">Consulting</span>
+      <img src="logo.png" alt="M.K Consulting" class="logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -1333,8 +1330,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <span class="logo-dot"></span>
-          M.K <span style="color: var(--ink-dim); font-weight: 400;">Consulting</span>
+          <img src="logo.png" alt="M.K Consulting" class="logo-img" style="height: 44px;" />
         </div>
         <p>AI integration, automation, and workflow consulting for growing businesses. Headquartered in Atlanta, GA — serving clients nationwide.</p>
       </div>
