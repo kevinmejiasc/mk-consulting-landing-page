@@ -702,12 +702,19 @@
     border: 1px solid var(--line-strong);
     border-radius: 32px;
     padding: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
     position: relative;
     overflow: hidden;
+  }
+
+  .cta-card .cta-headline { margin-bottom: 20px; }
+
+  .cta-card .cta-bullets {
+    text-align: left;
+    max-width: 440px;
+    margin: 0 auto 40px;
   }
 
   .cta-card::before {
@@ -847,14 +854,201 @@
   .success-msg p { color: var(--ink-dim); }
 
   @media (max-width: 980px) {
-    .cta-card {
-      grid-template-columns: 1fr;
-      padding: 48px 32px;
-      gap: 48px;
-    }
+    .cta-card { padding: 48px 32px; }
   }
   @media (max-width: 520px) {
     .form-row { grid-template-columns: 1fr; }
+  }
+
+  .field select { cursor: pointer; }
+  .field select option { background: var(--bg-card); }
+
+  /* ============ MODAL ============ */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--bg-card);
+    border: 1px solid var(--line-strong);
+    border-radius: 24px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(28px) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-overflow-scrolling: touch;
+  }
+  .modal-overlay.open .modal {
+    transform: translateY(0) scale(1);
+  }
+  .modal::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.7;
+    border-radius: 24px 24px 0 0;
+    pointer-events: none;
+  }
+
+  .modal-header {
+    padding: 28px 28px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .modal-steps { display: flex; gap: 8px; align-items: center; }
+  .modal-step-bar {
+    width: 32px; height: 3px;
+    border-radius: 2px;
+    background: var(--line-strong);
+    transition: background 0.3s;
+  }
+  .modal-step-bar.active { background: var(--accent); }
+  .modal-step-bar.done { background: rgba(212, 255, 61, 0.35); }
+
+  .modal-step-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-left: 4px;
+  }
+
+  .modal-close {
+    background: none;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-dim);
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1;
+    transition: all 0.2s;
+  }
+  .modal-close:hover { border-color: var(--ink); color: var(--ink); }
+
+  .modal-body { padding: 20px 28px 28px; }
+
+  .modal-form-step { display: none; flex-direction: column; gap: 14px; }
+  .modal-form-step.active { display: flex; }
+
+  .modal-step-title {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 2px;
+  }
+  .modal-step-title em { font-style: italic; color: var(--accent); }
+
+  .modal-step-sub {
+    font-size: 13px;
+    color: var(--ink-dim);
+    margin-bottom: 8px;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    align-items: center;
+  }
+
+  .btn-back {
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--ink-dim);
+    padding: 14px 18px;
+    border-radius: 100px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .btn-back:hover { border-color: var(--ink); color: var(--ink); }
+
+  .modal-fineprint {
+    font-size: 12px;
+    color: var(--ink-faint);
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .modal-success { display: none; text-align: center; padding: 8px 0 4px; }
+  .modal-success.active { display: block; }
+
+  .modal-success-icon {
+    width: 60px; height: 60px;
+    background: rgba(212, 255, 61, 0.08);
+    border: 1px solid rgba(212, 255, 61, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--accent);
+  }
+  .modal-success h3 {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .modal-success p { color: var(--ink-dim); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+
+  .calendly-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #07070a;
+    font-family: var(--body);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.25s;
+    margin-bottom: 16px;
+  }
+  .calendly-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(212, 255, 61, 0.35);
+  }
+
+  @media (max-width: 600px) {
+    .modal { border-radius: 16px; }
+    .modal-header { padding: 20px 20px 0; }
+    .modal-body { padding: 16px 20px 24px; }
+    .modal-step-title { font-size: 22px; }
   }
 
   /* ============ FAQ ============ */
@@ -1005,7 +1199,7 @@
       <li><a href="#process">Process</a></li>
       <li><a href="#outcomes">Outcomes</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li class="cta-link"><a href="#book" class="btn btn-primary">Book a Call <span class="btn-arrow">→</span></a></li>
+      <li class="cta-link"><a href="#" class="btn btn-primary" data-modal>Book a Call <span class="btn-arrow">→</span></a></li>
     </ul>
   </div>
 </nav>
@@ -1027,7 +1221,7 @@
       that frees your team to focus on what actually grows the company.
     </p>
     <div class="hero-cta-row">
-      <a href="#book" class="btn btn-primary">
+      <a href="#" class="btn btn-primary" data-modal>
         Book a Free Strategy Call <span class="btn-arrow">→</span>
       </a>
       <a href="#services" class="btn btn-ghost">See How It Works</a>
@@ -1209,81 +1403,29 @@
   </div>
 </section>
 
-<!-- ============ CTA / LEAD CAPTURE ============ -->
+<!-- ============ CTA ============ -->
 <section class="cta-section" id="book">
   <div class="container">
     <div class="cta-card">
-      <div class="cta-left">
-        <h2 class="cta-headline">Let's find <em>30 hours</em> hiding in your business.</h2>
-        <p class="cta-sub">Book a free 30-minute strategy call. We'll walk through your operation, identify the highest-leverage automation opportunity, and tell you exactly what we'd build first — no commitment required.</p>
-        <ul class="cta-bullets">
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>30 minutes, on Zoom</span>
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Walk away with at least one immediately actionable insight</span>
-          </li>
-          <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>No obligation, no hard sell — we only proceed if it's a fit</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="cta-right">
-        <form id="leadForm" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label for="firstName">First name *</label>
-              <input id="firstName" name="firstName" type="text" required autocomplete="given-name" />
-            </div>
-            <div class="field">
-              <label for="lastName">Last name *</label>
-              <input id="lastName" name="lastName" type="text" required autocomplete="family-name" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="email">Work email *</label>
-            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
-          </div>
-          <div class="form-row">
-            <div class="field">
-              <label for="company">Company *</label>
-              <input id="company" name="company" type="text" required autocomplete="organization" />
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="revenue">Annual revenue *</label>
-            <select id="revenue" name="revenue" required>
-              <option value="">Select range</option>
-              <option>Under $250K</option>
-              <option>$250K – $1M</option>
-              <option>$1M – $5M</option>
-              <option>$5M – $25M</option>
-              <option>$25M+</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="goal">What's the biggest workflow friction in your business right now?</label>
-            <textarea id="goal" name="goal" placeholder="Briefly describe the bottleneck or repetitive work draining your team's time..."></textarea>
-          </div>
-          <button type="submit" class="submit-btn">
-            Book My Strategy Call <span>→</span>
-          </button>
-          <p class="form-fineprint">We respond within 1 business day. Your info stays with us — never sold, never shared.</p>
-        </form>
-
-        <div id="successMsg" class="success-msg">
-          <h3>You're in. ✦</h3>
-          <p>Thanks — we just received your request. Expect a reply within one business day with a calendar link to lock in your strategy call.</p>
-        </div>
-      </div>
+      <h2 class="cta-headline">Let's find <em>30 hours</em> hiding in your business.</h2>
+      <p class="cta-sub">Book a free 30-minute strategy call. We'll walk through your operation, identify the highest-leverage automation opportunity, and tell you exactly what we'd build first — no commitment required.</p>
+      <ul class="cta-bullets">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>30 minutes, on Zoom</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Walk away with at least one immediately actionable insight</span>
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>No obligation, no hard sell — we only proceed if it's a fit</span>
+        </li>
+      </ul>
+      <button class="btn btn-primary" data-modal style="font-size:15px; padding:16px 32px;">
+        Book a Free Strategy Call <span class="btn-arrow">→</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1360,52 +1502,237 @@
   </div>
 </footer>
 
+<!-- ============ MODAL ============ -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modal">
+
+    <div class="modal-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="modal-steps">
+          <div class="modal-step-bar active" id="bar1"></div>
+          <div class="modal-step-bar" id="bar2"></div>
+        </div>
+        <span class="modal-step-label" id="stepLabel">Step 1 of 2</span>
+      </div>
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Step 1: Contact info -->
+      <div class="modal-form-step active" id="step1">
+        <div>
+          <h2 class="modal-step-title" id="modalTitle">Let's get <em>introduced</em></h2>
+          <p class="modal-step-sub">Takes under 2 minutes — no commitment.</p>
+        </div>
+        <div class="field">
+          <label for="m-name">Full name *</label>
+          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" />
+        </div>
+        <div class="field">
+          <label for="m-email">Work email *</label>
+          <input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
+        </div>
+        <div class="field">
+          <label for="m-phone">Phone number *</label>
+          <input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="submit-btn" id="nextBtn" style="flex:1;">
+            Next — Business Info <span>→</span>
+          </button>
+        </div>
+        <p class="modal-fineprint">Your info stays with us — never sold, never shared.</p>
+      </div>
+
+      <!-- Step 2: Business info -->
+      <div class="modal-form-step" id="step2">
+        <div>
+          <h2 class="modal-step-title">Tell us about your <em>business</em></h2>
+          <p class="modal-step-sub">Help us prepare for your call.</p>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="m-revenue">Annual revenue *</label>
+            <select id="m-revenue" name="revenue">
+              <option value="">Select range</option>
+              <option>Under $250K</option>
+              <option>$250K – $1M</option>
+              <option>$1M – $5M</option>
+              <option>$5M – $25M</option>
+              <option>$25M+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="m-industry">Industry *</label>
+            <select id="m-industry" name="industry">
+              <option value="">Select industry</option>
+              <option>Professional Services</option>
+              <option>E-commerce / Retail</option>
+              <option>Real Estate</option>
+              <option>Legal / Law Firm</option>
+              <option>Accounting / Finance</option>
+              <option>Healthcare / Medical</option>
+              <option>Construction / Trades</option>
+              <option>Marketing / Agency</option>
+              <option>Technology / SaaS</option>
+              <option>Restaurant / Hospitality</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="m-friction">Biggest friction point *</label>
+          <textarea id="m-friction" name="friction" style="min-height:88px" placeholder="What repetitive or manual work is draining your team's time most?"></textarea>
+        </div>
+        <div class="field">
+          <label for="m-whynow">Why now?</label>
+          <textarea id="m-whynow" name="whynow" style="min-height:72px" placeholder="What's making this a priority right now?"></textarea>
+        </div>
+        <div class="field">
+          <label for="m-other">Anything else?</label>
+          <textarea id="m-other" name="other" style="min-height:72px" placeholder="Any other context that would help us prepare for your call..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-back" id="backBtn">← Back</button>
+          <button type="button" class="submit-btn" id="submitBtn" style="flex:1;">
+            Submit <span>→</span>
+          </button>
+        </div>
+        <p class="modal-fineprint">We respond within 1 business day.</p>
+      </div>
+
+      <!-- Success -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="modal-success-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>You're in. ✦</h3>
+        <p>We received your request and will follow up within one business day. Want to lock in a time right now?</p>
+        <a href="https://calendly.com/YOUR_LINK" target="_blank" rel="noopener" class="calendly-btn">
+          Book Your Call on Calendly <span>→</span>
+        </a>
+        <p class="modal-fineprint">Or wait — we'll send a scheduling link by email.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script>
-  // === Form handler ===
-  const form = document.getElementById('leadForm');
-  const successMsg = document.getElementById('successMsg');
+  // ── Modal ──────────────────────────────────────────────
+  const overlay  = document.getElementById('modalOverlay');
+  const bar1     = document.getElementById('bar1');
+  const bar2     = document.getElementById('bar2');
+  const stepLabel = document.getElementById('stepLabel');
+  const step1    = document.getElementById('step1');
+  const step2    = document.getElementById('step2');
+  const success  = document.getElementById('modalSuccess');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('m-name').focus(), 350);
+  }
 
-    const data = Object.fromEntries(new FormData(form).entries());
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
 
-    // Basic validation
-    if (!data.firstName || !data.lastName || !data.email || !data.company || !data.revenue) {
-      alert('Please fill out all required fields.');
+  function goToStep2() {
+    step1.classList.remove('active');
+    step2.classList.add('active');
+    bar1.classList.remove('active'); bar1.classList.add('done');
+    bar2.classList.add('active');
+    stepLabel.textContent = 'Step 2 of 2';
+    overlay.querySelector('.modal').scrollTop = 0;
+  }
+
+  function goToStep1() {
+    step2.classList.remove('active');
+    step1.classList.add('active');
+    bar2.classList.remove('active');
+    bar1.classList.remove('done'); bar1.classList.add('active');
+    stepLabel.textContent = 'Step 1 of 2';
+  }
+
+  function showSuccess() {
+    step2.classList.remove('active');
+    success.classList.add('active');
+    bar2.classList.remove('active'); bar2.classList.add('done');
+    stepLabel.textContent = 'Done';
+    overlay.querySelector('.modal').scrollTop = 0;
+  }
+
+  // Open triggers
+  document.querySelectorAll('[data-modal]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+  });
+
+  // Close triggers
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // Step 1 → Step 2 (validate contact fields)
+  document.getElementById('nextBtn').addEventListener('click', () => {
+    const name  = document.getElementById('m-name').value.trim();
+    const email = document.getElementById('m-email').value.trim();
+    const phone = document.getElementById('m-phone').value.trim();
+    if (!name || !email || !phone) {
+      alert('Please fill in your name, email, and phone number.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    goToStep2();
+  });
+
+  // Step 2 → back
+  document.getElementById('backBtn').addEventListener('click', goToStep1);
+
+  // Step 2 → submit
+  document.getElementById('submitBtn').addEventListener('click', () => {
+    const revenue  = document.getElementById('m-revenue').value;
+    const industry = document.getElementById('m-industry').value;
+    const friction = document.getElementById('m-friction').value.trim();
+    if (!revenue || !industry || !friction) {
+      alert('Please fill in revenue, industry, and your biggest friction point.');
       return;
     }
 
-    // ===========================================================
-    // CONNECT TO YOUR BACKEND HERE — replace this block:
-    // Examples:
-    //   - POST to a webhook (Zapier, Make, n8n alternative)
-    //   - POST to your GHL endpoint
-    //   - POST to a Supabase function
-    //
-    // Example with fetch:
-    //   await fetch('https://your-endpoint.com/leads', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(data)
-    //   });
-    // ===========================================================
+    const data = {
+      name:     document.getElementById('m-name').value.trim(),
+      email:    document.getElementById('m-email').value.trim(),
+      phone:    document.getElementById('m-phone').value.trim(),
+      revenue,
+      industry,
+      friction,
+      whynow:   document.getElementById('m-whynow').value.trim(),
+      other:    document.getElementById('m-other').value.trim(),
+    };
+
+    // ── CONNECT YOUR BACKEND HERE ──────────────────────
+    // await fetch('https://your-endpoint.com/leads', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data)
+    // });
+    // ───────────────────────────────────────────────────
 
     console.log('Lead submitted:', data);
-
-    form.style.display = 'none';
-    successMsg.classList.add('show');
-    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    showSuccess();
   });
 
-  // === Smooth scroll polyfill for older browsers ===
+  // ── Smooth scroll (non-modal anchor links only) ────────
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
+      if (a.hasAttribute('data-modal')) return;
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
 </script>
