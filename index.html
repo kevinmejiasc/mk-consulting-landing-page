@@ -16,8 +16,9 @@
 <link rel="canonical" href="https://gammatechgroup.com/" />
 
 <!-- ============ ICONS ============ -->
-<link rel="icon" type="image/png" href="logo2.png" />
-<link rel="apple-touch-icon" href="logo2.png" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" href="favicon-512.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
 <!-- ============ OPEN GRAPH ============ -->
 <meta property="og:type" content="website" />
@@ -26,14 +27,16 @@
 <meta property="og:description" content="We help Atlanta businesses eliminate workflow friction with custom AI agents, automation, and software integrations. Get a free evaluation." />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Gamma Tech Group" />
-<meta property="og:image" content="https://gammatechgroup.com/logo2.png" />
+<meta property="og:image" content="https://gammatechgroup.com/favicon-512.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
 <meta property="og:image:alt" content="Gamma Tech Group — AI automation & workflow consulting" />
 
 <!-- ============ TWITTER ============ -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AI Automation & Workflow Consulting | Gamma Tech Group" />
 <meta name="twitter:description" content="Atlanta consultancy helping growing businesses automate workflows with AI. Get a free evaluation." />
-<meta name="twitter:image" content="https://gammatechgroup.com/logo2.png" />
+<meta name="twitter:image" content="https://gammatechgroup.com/favicon-512.png" />
 
 <!-- ============ JSON-LD: LOCAL BUSINESS ============ -->
 <script type="application/ld+json">
@@ -44,8 +47,8 @@
   "name": "Gamma Tech Group",
   "description": "AI integration, business automation, and workflow consulting for growing businesses.",
   "url": "https://gammatechgroup.com/",
-  "logo": "https://gammatechgroup.com/logo2.png",
-  "image": "https://gammatechgroup.com/logo2.png",
+  "logo": "https://gammatechgroup.com/favicon-512.png",
+  "image": "https://gammatechgroup.com/favicon-512.png",
   "email": "hello@gammatechgroup.com",
   "areaServed": [
     { "@type": "City", "name": "Atlanta" },
@@ -223,6 +226,15 @@
   }
 
   .logo:hover .logo-img { opacity: 0.85; }
+
+  .logo-mark {
+    height: 64px;
+    width: auto;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .logo:hover .logo-mark { opacity: 0.85; }
+  .footer-brand .logo-mark { height: 52px; }
 
   .nav-links {
     display: flex;
@@ -1173,6 +1185,14 @@
     .footer-grid { grid-template-columns: 1fr; }
   }
 
+  /* Mobile nav: keep logo + CTA, drop the inline section links (still reachable by scroll) */
+  @media (max-width: 640px) {
+    .nav-links { gap: 0; }
+    .nav-links li:not(.cta-link) { display: none; }
+    nav .logo-mark { height: 44px; }
+    .cta-link .btn { padding: 10px 15px; font-size: 13px; }
+  }
+
   /* ============ MARQUEE ACCENT ============ */
   .marquee {
     border-block: 1px solid var(--line);
@@ -1206,6 +1226,291 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+
+  /* ============ GAMMA SHOWCASE ============ */
+  .showcase-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 56px;
+    min-height: 620px;
+  }
+
+  /* accent glow behind the phone */
+  .showcase-stage::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 520px;
+    max-width: 96vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,255,61,0.16), transparent 65%);
+    filter: blur(12px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* reveal wrapper */
+  .phone-wrap {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(48px) scale(0.97);
+    transition: opacity 0.8s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    will-change: opacity, transform;
+  }
+  .phone-wrap.in-view { opacity: 1; transform: translateY(0) scale(1); }
+
+  /* the device — floats gently once revealed */
+  .phone {
+    width: clamp(248px, 76vw, 300px);
+    aspect-ratio: 9 / 19.3;
+    background: linear-gradient(165deg, #20202b, #0c0c11);
+    border-radius: 46px;
+    padding: 11px;
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.6),
+      0 30px 70px -20px rgba(0,0,0,0.85),
+      inset 0 0 0 1.5px rgba(246,245,240,0.07);
+    animation: floaty 6.5s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .phone-screen {
+    position: relative;
+    height: 100%;
+    background: #0a0a0f;
+    border-radius: 36px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 14px 14px;
+    font-size: 12px;
+  }
+
+  /* notch / dynamic island */
+  .phone-notch {
+    position: absolute;
+    top: 9px; left: 50%;
+    transform: translateX(-50%);
+    width: 86px; height: 22px;
+    background: #000;
+    border-radius: 14px;
+    z-index: 5;
+  }
+
+  /* status bar */
+  .g-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 6px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .g-status-icons { display: flex; gap: 5px; align-items: center; opacity: 0.9; }
+
+  /* app header */
+  .g-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 4px 14px;
+  }
+  .g-brand {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .g-logo {
+    width: 26px; height: 26px;
+    display: grid; place-items: center;
+    background: var(--accent);
+    color: #07070a;
+    border-radius: 8px;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .g-live {
+    display: flex; align-items: center; gap: 6px;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: rgba(212,255,61,0.1);
+    border: 1px solid rgba(212,255,61,0.22);
+    padding: 4px 8px;
+    border-radius: 20px;
+  }
+  .g-live .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  /* hero stat card */
+  .g-hero-card {
+    background: linear-gradient(155deg, rgba(212,255,61,0.13), rgba(17,17,24,0.6));
+    border: 1px solid rgba(212,255,61,0.18);
+    border-radius: 18px;
+    padding: 14px 15px 13px;
+    margin-bottom: 14px;
+  }
+  .g-hero-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+  }
+  .g-hero-num {
+    font-family: var(--display);
+    font-size: 40px;
+    line-height: 1.05;
+    color: var(--ink);
+    margin: 2px 0 10px;
+  }
+  .g-hero-num span { color: var(--accent); }
+  .g-hero-num .unit { font-size: 16px; color: var(--ink-dim); }
+
+  .g-bars { display: flex; align-items: flex-end; gap: 5px; height: 34px; }
+  .g-bar {
+    flex: 1;
+    background: linear-gradient(to top, rgba(212,255,61,0.5), var(--accent));
+    border-radius: 3px 3px 0 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.7s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .phone-wrap.in-view .g-bar { transform: scaleY(1); }
+
+  /* automations */
+  .g-section-label {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin: 2px 2px 9px;
+  }
+  .g-autos { display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+  .g-auto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 9px 10px;
+    opacity: 0;
+    transform: translateX(18px);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .phone-wrap.in-view .g-auto { opacity: 1; transform: none; }
+  .phone-wrap.in-view .g-auto:nth-child(1) { transition-delay: 0.55s; }
+  .phone-wrap.in-view .g-auto:nth-child(2) { transition-delay: 0.7s; }
+  .phone-wrap.in-view .g-auto:nth-child(3) { transition-delay: 0.85s; }
+  .phone-wrap.in-view .g-auto:nth-child(4) { transition-delay: 1s; }
+
+  .g-auto-icon {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+    background: rgba(212,255,61,0.1);
+    color: var(--accent);
+    border-radius: 9px;
+  }
+  .g-auto-body { flex: 1; min-width: 0; }
+  .g-auto-title {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .g-auto-sub {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-faint);
+    margin-top: 1px;
+  }
+  .g-pill {
+    flex-shrink: 0;
+    display: flex; align-items: center; gap: 4px;
+    font-family: var(--mono);
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 4px 7px;
+    border-radius: 20px;
+  }
+  .g-pill.done { color: var(--accent); background: rgba(212,255,61,0.1); }
+  .g-pill.running { color: #ffb84d; background: rgba(255,184,77,0.12); }
+  .g-pill.running .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #ffb84d; animation: pulse 1.4s infinite;
+  }
+
+  /* floating context chips (desktop only) */
+  .float-chip {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(13,13,18,0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    padding: 11px 14px;
+    box-shadow: 0 18px 40px -18px rgba(0,0,0,0.9);
+    opacity: 0;
+    transform: translateY(22px) scale(0.95);
+    transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .showcase-stage.in-view .float-chip { opacity: 1; transform: none; }
+  .showcase-stage.in-view .float-chip.c1 { transition-delay: 1.1s; }
+  .showcase-stage.in-view .float-chip.c2 { transition-delay: 1.3s; }
+  .float-chip .fc-num {
+    font-family: var(--display);
+    font-size: 24px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .float-chip .fc-label { font-size: 12px; color: var(--ink-dim); max-width: 120px; }
+  .float-chip.c1 { top: 16%; left: max(0px, calc(50% - 300px)); }
+  .float-chip.c2 { bottom: 14%; right: max(0px, calc(50% - 300px)); }
+
+  @media (max-width: 900px) {
+    .float-chip { display: none; }
+    .showcase-stage { min-height: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .phone { animation: none; }
+    .phone-wrap, .g-auto, .g-bar, .float-chip {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .g-bar { transform: scaleY(1) !important; }
+  }
 </style>
 </head>
 
@@ -1215,7 +1520,13 @@
 <nav>
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <img src="logo2.png" alt="Gamma Tech Group" class="logo-img" />
+      <svg class="logo-mark" viewBox="0 0 198 68" role="img" aria-label="Gamma Tech Group" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="4" width="60" height="60" rx="14" fill="#d4ff3d"/>
+        <rect x="18" y="20" width="8.5" height="26" rx="2.3" fill="#07070a"/>
+        <rect x="18" y="20" width="23" height="8.5" rx="2.3" fill="#07070a"/>
+        <text x="75" y="41" font-family="Manrope, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.4" fill="#f6f5f0">Gamma</text>
+        <text x="77" y="58" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="10" letter-spacing="4.2" fill="#d4ff3d">TECH GROUP</text>
+      </svg>
     </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
@@ -1319,6 +1630,120 @@
         <h3 class="problem-title">Bottlenecks you can't see</h3>
         <p class="problem-text">You feel the drag — slower deals, missed leads, late deliverables — but you can't pinpoint where revenue is actually getting stuck.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAMMA SHOWCASE ============ -->
+<section id="product">
+  <div class="container">
+    <div class="section-tag">The Gamma System</div>
+    <h2 class="section-title">Every workflow, <em>running itself</em>.</h2>
+    <p class="section-lead">This is Gamma — the automation layer we build around your business. Leads, scheduling, invoices, and follow-ups handled the second they happen, so your team never touches the busywork again.</p>
+
+    <div class="showcase-stage" id="gammaStage">
+
+      <!-- floating context chips (desktop) -->
+      <div class="float-chip c1">
+        <span class="fc-num">0</span>
+        <span class="fc-label">leads missed since Gamma went live</span>
+      </div>
+      <div class="float-chip c2">
+        <span class="fc-num">3.2×</span>
+        <span class="fc-label">faster lead response time</span>
+      </div>
+
+      <!-- phone -->
+      <div class="phone-wrap" id="gammaPhone">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+
+            <!-- status bar -->
+            <div class="g-status">
+              <span>9:41</span>
+              <span class="g-status-icons">
+                <svg width="16" height="11" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2" width="3" height="10" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1" opacity="0.4"/></svg>
+                <svg width="15" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 4.5a10 10 0 0 1 14 0M3.5 7a6.5 6.5 0 0 1 9 0"/><circle cx="8" cy="10" r="1" fill="currentColor" stroke="none"/></svg>
+                <svg width="22" height="11" viewBox="0 0 24 12" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="1" y="1" width="20" height="10" rx="3"/><rect x="3" y="3" width="13" height="6" rx="1.5" fill="currentColor"/><rect x="22.5" y="4" width="1.5" height="4" rx="1" fill="currentColor"/></svg>
+              </span>
+            </div>
+
+            <!-- app header -->
+            <div class="g-header">
+              <div class="g-brand"><span class="g-logo">G</span> Gamma</div>
+              <div class="g-live"><span class="dot"></span> Live</div>
+            </div>
+
+            <!-- hero stat -->
+            <div class="g-hero-card">
+              <div class="g-hero-label">Hours reclaimed · this month</div>
+              <div class="g-hero-num"><span data-count="142">0</span> <span class="unit">hrs</span></div>
+              <div class="g-bars">
+                <span class="g-bar" style="height:42%"></span>
+                <span class="g-bar" style="height:58%"></span>
+                <span class="g-bar" style="height:50%"></span>
+                <span class="g-bar" style="height:72%"></span>
+                <span class="g-bar" style="height:64%"></span>
+                <span class="g-bar" style="height:88%"></span>
+                <span class="g-bar" style="height:100%"></span>
+              </div>
+            </div>
+
+            <!-- automations -->
+            <div class="g-section-label">Active automations</div>
+            <div class="g-autos">
+
+              <div class="g-auto">
+                <span class="g-auto-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+                </span>
+                <span class="g-auto-body">
+                  <span class="g-auto-title">New lead → reply sent</span>
+                  <span class="g-auto-sub">triggered 2s ago</span>
+                </span>
+                <span class="g-pill done">✓ Done</span>
+              </div>
+
+              <div class="g-auto">
+                <span class="g-auto-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </span>
+                <span class="g-auto-body">
+                  <span class="g-auto-title">Booking → synced</span>
+                  <span class="g-auto-sub">triggered 5m ago</span>
+                </span>
+                <span class="g-pill done">✓ Done</span>
+              </div>
+
+              <div class="g-auto">
+                <span class="g-auto-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+                </span>
+                <span class="g-auto-body">
+                  <span class="g-auto-title">Invoice → reminder</span>
+                  <span class="g-auto-sub">triggered 12m ago</span>
+                </span>
+                <span class="g-pill done">✓ Done</span>
+              </div>
+
+              <div class="g-auto">
+                <span class="g-auto-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v5h-5"/></svg>
+                </span>
+                <span class="g-auto-body">
+                  <span class="g-auto-title">Form → CRM sync</span>
+                  <span class="g-auto-sub">running now</span>
+                </span>
+                <span class="g-pill running"><span class="dot"></span> Live</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1495,7 +1920,13 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">
-          <img src="logo2.png" alt="Gamma Tech Group" class="logo-img" style="height: 60px;" />
+          <svg class="logo-mark" viewBox="0 0 198 68" role="img" aria-label="Gamma Tech Group" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="4" width="60" height="60" rx="14" fill="#d4ff3d"/>
+            <rect x="18" y="20" width="8.5" height="26" rx="2.3" fill="#07070a"/>
+            <rect x="18" y="20" width="23" height="8.5" rx="2.3" fill="#07070a"/>
+            <text x="75" y="41" font-family="Manrope, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.4" fill="#f6f5f0">Gamma</text>
+            <text x="77" y="58" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="10" letter-spacing="4.2" fill="#d4ff3d">TECH GROUP</text>
+          </svg>
         </div>
         <p>AI integration, automation, and workflow consulting for growing businesses. Headquartered in Atlanta, GA — serving clients nationwide.</p>
       </div>
@@ -1771,6 +2202,44 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+
+  // ── Gamma showcase: reveal on scroll + count-up ────────
+  (function () {
+    const stage = document.getElementById('gammaStage');
+    const phone = document.getElementById('gammaPhone');
+    if (!stage || !phone) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const counter = phone.querySelector('[data-count]');
+
+    function runCount() {
+      if (!counter) return;
+      const target = parseInt(counter.getAttribute('data-count'), 10) || 0;
+      if (reduce) { counter.textContent = target; return; }
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+        counter.textContent = Math.round(eased * target);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          phone.classList.add('in-view');
+          stage.classList.add('in-view');
+          runCount();
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.35 });
+
+    io.observe(phone);
+  })();
 </script>
 
 </body>
