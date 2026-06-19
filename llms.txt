@@ -1,0 +1,20 @@
+# Gamma Tech Group
+
+> AI automation & workflow consulting for Atlanta-area businesses. We help companies doing $250K+ in annual revenue eliminate operational friction with custom AI agents, software integrations, and process automation.
+
+## About
+Gamma Tech Group maps operational workflows, identifies the friction points costing time and money, and deploys a tailored mix of AI agents, software integrations, and automation to remove them — so teams focus on revenue instead of repetition. Based in Atlanta, GA; serving clients across the United States.
+
+## Services
+- AI Integration — custom AI agents built around real workflows
+- Business Automation — removing repetitive manual work
+- Workflow Consulting — auditing operations and finding bottlenecks
+- Software Integration — connecting disconnected tools and systems
+
+## Who it's for
+Businesses generating $250K+ in annual revenue that are bottlenecked by manual processes, disconnected software, or admin work that distracts from growth.
+
+## Contact
+- Website: https://gammatechgroup.com/
+- Email: hello@gammatechgroup.com
+- Free evaluation: book via the form on the homepage
