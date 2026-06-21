@@ -34,7 +34,7 @@ logo.png, logo2.png    — brand marks (still show old "M.K" art — replace wit
 - **Sheet ID**: Set `SHEET_ID` in `google-apps-script.gs` before deploying it.
 - **Logo art**: `logo.png` / `logo2.png` still show the old M.K mark — replace the image files with the Gamma Tech Group logo (filenames can stay the same).
 - **Social card**: `og:image` / `twitter:image` point at `logo2.png`. A dedicated 1200×630 share image is recommended for nicer link previews.
-- **Calendar**: Form success redirects to `https://calendar.app.google/MMjszRpnR6TFjwmLA` (Google Calendar appointment scheduling) — update the `#calBtn` href if the link changes.
+- **Calendar**: Form success redirects to `https://scheduler.zoom.us/kevin-mejias/gammatechgroup` (Zoom Scheduler) — update the `#calBtn` href if the link changes.
 
 ## Hosting (GitHub Pages + custom domain)
 
