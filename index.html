@@ -1991,6 +1991,10 @@
           <label for="m-phone">Phone number *</label>
           <input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
         </div>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+          <label for="m-website">Website (leave this blank)</label>
+          <input id="m-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
         <div class="modal-actions">
           <button type="button" class="submit-btn" id="nextBtn" style="flex:1;">
             Next — Business Info <span>→</span>
@@ -2075,9 +2079,9 @@
 
 <script>
   // ── Lead capture endpoint ──────────────────────────────
-  // Paste your Google Apps Script Web App URL here (see google-apps-script.gs for setup).
-  // Until it's set, submissions still work and log to the console — they just aren't saved to Sheets.
-  const SHEETS_ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  // Paste your Cloudflare Worker URL here (see cloudflare-worker.js for setup).
+  // Until it's set, submissions still complete (console log + calendar redirect) but no email is sent.
+  const LEAD_ENDPOINT = 'https://gamma-lead.clementesfe.workers.dev/';
 
   // ── Modal ──────────────────────────────────────────────
   const overlay  = document.getElementById('modalOverlay');
@@ -2172,18 +2176,28 @@
       friction,
       whynow:   document.getElementById('m-whynow').value.trim(),
       other:    document.getElementById('m-other').value.trim(),
+      website:  document.getElementById('m-website').value.trim(),  // honeypot — humans leave blank
     };
 
-    // ── Send the lead to Google Sheets (fire-and-forget) ──
-    // Apps Script web apps don't send CORS headers, so we use a "simple" no-cors
-    // request (text/plain body) — the row still gets written; we just can't read the response.
-    if (SHEETS_ENDPOINT.startsWith('http')) {
-      fetch(SHEETS_ENDPOINT, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data),
-      }).catch(err => console.error('Lead capture failed:', err));
+    // ── Send the lead to the Cloudflare Worker (which emails it via Resend) ──
+    // Body is sent as text/plain so it's a "simple" request (no CORS preflight needed).
+    // sendBeacon survives the redirect below; fetch with keepalive is the fallback.
+    if (LEAD_ENDPOINT.startsWith('http')) {
+      const payload = JSON.stringify(data);
+      let sent = false;
+      try {
+        const blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
+        sent = navigator.sendBeacon && navigator.sendBeacon(LEAD_ENDPOINT, blob);
+      } catch (e) { sent = false; }
+      if (!sent) {
+        fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: payload,
+          keepalive: true,
+        }).catch(err => console.error('Lead capture failed:', err));
+      }
     }
 
     console.log('Lead submitted:', data);

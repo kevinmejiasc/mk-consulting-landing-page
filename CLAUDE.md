@@ -6,7 +6,7 @@ Single-file static landing page for Gamma Tech Group (formerly M.K Consulting) �
 
 ```
 index.html             — the entire site (HTML + CSS + JS in one file)
-google-apps-script.gs  — Google Sheets lead-capture endpoint (deploy as an Apps Script Web App)
+cloudflare-worker.js   — lead-capture endpoint (deploy as a Cloudflare Worker; emails via Resend)
 robots.txt             — crawl rules (allows major AI/LLM crawlers) + sitemap pointer
 sitemap.xml            — single-URL sitemap
 llms.txt               — concise site summary for AI search engines
@@ -30,8 +30,9 @@ logo.png, logo2.png    — brand marks (still show old "M.K" art — replace wit
 
 ## Before launch — remaining placeholders
 
-- **Sheets endpoint**: Set `SHEETS_ENDPOINT` near the top of the `<script>` in index.html to the Apps Script Web App URL (see `google-apps-script.gs` for setup). Until set, leads log to console only.
-- **Sheet ID**: Set `SHEET_ID` in `google-apps-script.gs` before deploying it.
+- **Lead endpoint**: Set `LEAD_ENDPOINT` near the top of the `<script>` in index.html to the Cloudflare Worker URL (see `cloudflare-worker.js` for setup). Until set, leads log to console only (no email sent).
+- **Worker secrets**: In the Worker's Settings → Variables, set `RESEND_API_KEY` (Secret), `NOTIFY_TO` (inbox), and optionally `FROM_EMAIL`. The Resend key never touches the repo or the browser.
+- **Lead form anti-abuse**: hidden honeypot field `website` (humans leave blank); the Worker drops any submission where it's filled.
 - **Logo art**: `logo.png` / `logo2.png` still show the old M.K mark — replace the image files with the Gamma Tech Group logo (filenames can stay the same).
 - **Social card**: `og:image` / `twitter:image` point at `logo2.png`. A dedicated 1200×630 share image is recommended for nicer link previews.
 - **Calendar**: Form success redirects to `https://scheduler.zoom.us/kevin-mejias/gammatechgroup` (Zoom Scheduler) — update the `#calBtn` href if the link changes.
