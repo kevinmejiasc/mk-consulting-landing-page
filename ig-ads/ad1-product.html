@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; }
+  .card {
+    width: 1080px; height: 1350px; background: #07070a; position: relative; overflow: hidden;
+    font-family: 'Manrope', sans-serif; padding: 80px 80px 72px;
+    display: flex; flex-direction: column;
+  }
+  .glow {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 40% at 12% -2%, rgba(212,255,61,0.16), transparent 55%),
+      radial-gradient(ellipse 65% 45% at 95% 102%, rgba(255,87,34,0.08), transparent 55%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(246,245,240,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(246,245,240,0.05) 1px, transparent 1px);
+    background-size: 70px 70px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black, transparent 84%);
+            mask-image: radial-gradient(ellipse at center, black, transparent 84%);
+  }
+  .top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #d4ff3d;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow .dot { width: 9px; height: 9px; border-radius: 50%; background: #d4ff3d; box-shadow: 0 0 12px #d4ff3d; }
+  .headline {
+    position: relative; z-index: 3; margin-top: 40px;
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 70px;
+    line-height: 1.02; letter-spacing: -0.025em; color: #f6f5f0; max-width: 880px;
+  }
+  .headline em { font-style: italic; font-weight: 500; color: #d4ff3d; }
+  .stage { position: relative; z-index: 3; flex: 1; display: flex; align-items: center; justify-content: center; }
+  .stage::before {
+    content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 620px; height: 620px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,255,61,0.18), transparent 65%); filter: blur(10px);
+  }
+  /* phone */
+  .phone {
+    position: relative; z-index: 4;
+    width: 420px; aspect-ratio: 9 / 19.3;
+    background: linear-gradient(165deg, #20202b, #0c0c11);
+    border-radius: 60px; padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6), 0 50px 100px -25px rgba(0,0,0,0.9), inset 0 0 0 2px rgba(246,245,240,0.07);
+  }
+  .screen { position: relative; height: 100%; background: #0a0a0f; border-radius: 47px; overflow: hidden; padding: 0 18px 0; display: flex; flex-direction: column; }
+  .notch { position: absolute; top: 13px; left: 50%; transform: translateX(-50%); width: 116px; height: 30px; background: #000; border-radius: 18px; z-index: 5; }
+  .status { display: flex; justify-content: space-between; align-items: center; padding: 17px 8px 16px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #f6f5f0; font-weight: 500; }
+  .status .ic { display: flex; gap: 6px; opacity: 0.9; }
+  .appbar { display: flex; justify-content: space-between; align-items: center; padding: 4px 4px 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Fraunces', serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; color: #f6f5f0; }
+  .blogo { width: 32px; height: 32px; display: grid; place-items: center; background: #d4ff3d; color: #07070a; border-radius: 10px; font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; }
+  .live { display: flex; align-items: center; gap: 7px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: #d4ff3d; background: rgba(212,255,61,0.1); border: 1px solid rgba(212,255,61,0.22); padding: 6px 11px; border-radius: 20px; }
+  .live .d { width: 7px; height: 7px; border-radius: 50%; background: #d4ff3d; }
+  .herocard { background: linear-gradient(155deg, rgba(212,255,61,0.14), rgba(17,17,24,0.6)); border: 1px solid rgba(212,255,61,0.2); border-radius: 22px; padding: 18px 18px 16px; margin-bottom: 16px; }
+  .hl { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #a8a8b3; }
+  .hn { font-family: 'Fraunces', serif; font-size: 52px; line-height: 1.05; color: #f6f5f0; margin: 4px 0 14px; }
+  .hn span { color: #d4ff3d; }
+  .hn .u { font-size: 20px; color: #a8a8b3; }
+  .bars { display: flex; align-items: flex-end; gap: 7px; height: 46px; }
+  .bar { flex: 1; background: linear-gradient(to top, rgba(212,255,61,0.5), #d4ff3d); border-radius: 4px 4px 0 0; }
+  .seclbl { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #7d7d8a; margin: 6px 2px 11px; }
+  .autos { display: flex; flex-direction: column; gap: 10px; }
+  .auto { display: flex; align-items: center; gap: 12px; background: #111118; border: 1px solid rgba(246,245,240,0.08); border-radius: 15px; padding: 11px 12px; }
+  .aic { flex-shrink: 0; width: 36px; height: 36px; display: grid; place-items: center; background: rgba(212,255,61,0.1); color: #d4ff3d; border-radius: 11px; }
+  .ab { flex: 1; min-width: 0; }
+  .at { display: block; font-size: 13px; font-weight: 600; color: #f6f5f0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .as { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #7d7d8a; margin-top: 2px; }
+  .pill { flex-shrink: 0; display: flex; align-items: center; gap: 5px; font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; color: #d4ff3d; }
+  .navbar { margin-top: auto; display: flex; justify-content: space-around; align-items: center; padding: 16px 8px calc(18px + env(safe-area-inset-bottom)); border-top: 1px solid rgba(246,245,240,0.07); }
+  .nav-i { display: flex; flex-direction: column; align-items: center; gap: 5px; color: #4a4a55; }
+  .nav-i.on { color: #d4ff3d; }
+  .nav-i span { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.04em; }
+  .homebar { width: 120px; height: 5px; background: rgba(246,245,240,0.5); border-radius: 4px; margin: 8px auto 12px; }
+  /* footer */
+  .foot { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(246,245,240,0.12); padding-top: 28px; }
+  .lockup { display: flex; align-items: center; }
+  .url { font-family: 'JetBrains Mono', monospace; font-size: 19px; font-weight: 600; color: #f6f5f0; }
+  .loc { font-family: 'JetBrains Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: #7d7d8a; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <div class="grid"></div>
+
+    <div class="top">
+      <div class="eyebrow"><span class="dot"></span>Atlanta · AI Automation Studio</div>
+      <svg height="30" viewBox="0 0 198 68" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="4" width="60" height="60" rx="14" fill="#d4ff3d"/>
+        <rect x="18" y="20" width="8.5" height="26" rx="2.3" fill="#07070a"/>
+        <rect x="18" y="20" width="23" height="8.5" rx="2.3" fill="#07070a"/>
+        <text x="75" y="41" font-family="Manrope, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.4" fill="#f6f5f0">Gamma</text>
+        <text x="77" y="58" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="10" letter-spacing="4.2" fill="#d4ff3d">TECH GROUP</text>
+      </svg>
+    </div>
+
+    <h1 class="headline">Your operations,<br/>running on <em>autopilot</em>.</h1>
+
+    <div class="stage">
+      <div class="phone">
+        <div class="screen">
+          <div class="notch"></div>
+          <div class="status"><span>9:41</span><span class="ic">●&nbsp;&nbsp;◗&nbsp;&nbsp;▮</span></div>
+          <div class="appbar">
+            <div class="brand"><span class="blogo">Γ</span>Gamma</div>
+            <div class="live"><span class="d"></span>Live</div>
+          </div>
+          <div class="herocard">
+            <div class="hl">Hours reclaimed · this month</div>
+            <div class="hn"><span>41.6</span> <span class="u">hrs</span></div>
+            <div class="bars">
+              <div class="bar" style="height:40%"></div>
+              <div class="bar" style="height:62%"></div>
+              <div class="bar" style="height:48%"></div>
+              <div class="bar" style="height:78%"></div>
+              <div class="bar" style="height:66%"></div>
+              <div class="bar" style="height:92%"></div>
+              <div class="bar" style="height:100%"></div>
+            </div>
+          </div>
+          <div class="seclbl">Active automations</div>
+          <div class="autos">
+            <div class="auto">
+              <div class="aic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg></div>
+              <div class="ab"><span class="at">New lead → follow-up sent</span><span class="as">CRM · auto</span></div>
+              <div class="pill">✓ Done</div>
+            </div>
+            <div class="auto">
+              <div class="aic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+              <div class="ab"><span class="at">Invoice matched &amp; reconciled</span><span class="as">Accounting · auto</span></div>
+              <div class="pill">✓ Done</div>
+            </div>
+            <div class="auto">
+              <div class="aic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+              <div class="ab"><span class="at">Support ticket triaged</span><span class="as">AI agent · auto</span></div>
+              <div class="pill">✓ Done</div>
+            </div>
+            <div class="auto">
+              <div class="aic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6H4M20 12H4M14 18H4"/></svg></div>
+              <div class="ab"><span class="at">CRM updated from inbox</span><span class="as">Integration · auto</span></div>
+              <div class="pill">✓ Done</div>
+            </div>
+          </div>
+          <div class="navbar">
+            <div class="nav-i on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></div>
+            <div class="nav-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg><span>Flows</span></div>
+            <div class="nav-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg><span>Stats</span></div>
+            <div class="nav-i"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg><span>Team</span></div>
+          </div>
+          <div class="homebar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="url">gammatechgroup.com</span>
+      <span class="loc">Atlanta · GA</span>
+    </div>
+  </div>
+</body>
+</html>

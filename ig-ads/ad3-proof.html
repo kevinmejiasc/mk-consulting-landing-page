@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; }
+  .card {
+    width: 1080px; height: 1350px; background: #d4ff3d; position: relative; overflow: hidden;
+    font-family: 'Manrope', sans-serif; padding: 90px 80px 72px;
+    display: flex; flex-direction: column; color: #07070a;
+  }
+  .glow {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 90% 105%, rgba(0,0,0,0.10), transparent 60%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(7,7,10,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(7,7,10,0.06) 1px, transparent 1px);
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black, transparent 88%);
+            mask-image: radial-gradient(ellipse at center, black, transparent 88%);
+  }
+  .top { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 17px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #07070a;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .eyebrow .dot { width: 9px; height: 9px; border-radius: 50%; background: #07070a; }
+  .mid { position: relative; z-index: 3; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .bignum {
+    font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 440px;
+    line-height: 0.78; letter-spacing: -0.04em; color: #07070a;
+  }
+  .bignum sup { font-size: 0.32em; vertical-align: super; }
+  .label {
+    font-family: 'Fraunces', serif; font-weight: 400; font-size: 76px; line-height: 1.02;
+    letter-spacing: -0.025em; color: #07070a; margin-top: 8px;
+  }
+  .label em { font-style: italic; }
+  .desc {
+    position: relative; z-index: 3; font-size: 26px; line-height: 1.5; color: rgba(7,7,10,0.72);
+    max-width: 720px; margin-top: 36px; font-weight: 500;
+  }
+  .foot {
+    position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between;
+    margin-top: 56px; padding-top: 36px; border-top: 1px solid rgba(7,7,10,0.18);
+  }
+  .lockup { display: flex; align-items: center; gap: 14px; }
+  .lockup .mark { width: 46px; height: 46px; display: grid; place-items: center; background: #07070a; border-radius: 12px; }
+  .lockup .name { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: -0.04em; color: #07070a; }
+  .loc { font-family: 'JetBrains Mono', monospace; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(7,7,10,0.55); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <div class="grid"></div>
+
+    <div class="top">
+      <div class="eyebrow"><span class="dot"></span>Real client outcomes</div>
+      <div class="eyebrow" style="letter-spacing:0.16em">gammatechgroup.com</div>
+    </div>
+
+    <div class="mid">
+      <div class="bignum">40<sup>+</sup></div>
+      <div class="label">hours reclaimed.<br/><em>Every single month.</em></div>
+      <p class="desc">That's a full work-week back — per client, on average — redirected from busywork to revenue.</p>
+    </div>
+
+    <div class="foot">
+      <div class="lockup">
+        <span class="mark">
+          <svg width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="18" width="9" height="28" rx="2.5" fill="#d4ff3d"/>
+            <rect x="20" y="18" width="25" height="9" rx="2.5" fill="#d4ff3d"/>
+          </svg>
+        </span>
+        <span class="name">Gamma Tech Group</span>
+      </div>
+      <span class="loc">Atlanta · GA</span>
+    </div>
+  </div>
+</body>
+</html>
