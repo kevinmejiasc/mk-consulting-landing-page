@@ -11,7 +11,11 @@ robots.txt             — crawl rules (allows major AI/LLM crawlers) + sitemap 
 sitemap.xml            — single-URL sitemap
 llms.txt               — concise site summary for AI search engines
 CNAME                  — custom domain for GitHub Pages (gammatechgroup.com)
-logo.png, logo2.png    — brand marks (still show old "M.K" art — replace with Gamma Tech Group)
+favicon.svg            — Γ tile mark (inline SVG logo also lives in index.html nav/footer)
+icon-square.svg        — full-bleed source for the PNG icons
+favicon-512.png, apple-touch-icon.png — rasterized icons (from icon-square.svg)
+og-card.html           — 1200×630 social-card source; render to og-image.png via headless Chrome
+og-image.png           — social share image (og:image / twitter:image)
 ```
 
 ## Key sections in index.html
@@ -33,8 +37,8 @@ logo.png, logo2.png    — brand marks (still show old "M.K" art — replace wit
 - **Lead endpoint**: Set `LEAD_ENDPOINT` near the top of the `<script>` in index.html to the Cloudflare Worker URL (see `cloudflare-worker.js` for setup). Until set, leads log to console only (no email sent).
 - **Worker secrets**: In the Worker's Settings → Variables, set `RESEND_API_KEY` (Secret), `NOTIFY_TO` (inbox), and optionally `FROM_EMAIL`. The Resend key never touches the repo or the browser.
 - **Lead form anti-abuse**: hidden honeypot field `website` (humans leave blank); the Worker drops any submission where it's filled.
-- **Logo art**: `logo.png` / `logo2.png` still show the old M.K mark — replace the image files with the Gamma Tech Group logo (filenames can stay the same).
-- **Social card**: `og:image` / `twitter:image` point at `logo2.png`. A dedicated 1200×630 share image is recommended for nicer link previews.
+- **Logo**: done — inline SVG lockup (Γ tile + Manrope wordmark) in nav/footer; `favicon.svg` + PNG icons generated. Old `logo.png`/`logo2.png` removed.
+- **Social card**: done — `og:image` / `twitter:image` point at `og-image.png` (1200×630). To regenerate after edits: tweak `og-card.html`, then `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --force-device-scale-factor=2 --window-size=1200,630 --virtual-time-budget=4000 --screenshot=og-image.png file://$PWD/og-card.html` and `sips -z 630 1200 og-image.png`.
 - **Calendar**: Form success redirects to `https://scheduler.zoom.us/kevin-mejias/gammatechgroup` (Zoom Scheduler) — update the `#calBtn` href if the link changes.
 
 ## Hosting (GitHub Pages + custom domain)

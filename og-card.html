@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  .card {
+    width: 1200px; height: 630px;
+    background: #07070a;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
+    padding: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .glow {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 10% -5%, rgba(212,255,61,0.13), transparent 55%),
+      radial-gradient(ellipse 60% 55% at 100% 105%, rgba(255,87,34,0.08), transparent 55%);
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(246,245,240,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(246,245,240,0.05) 1px, transparent 1px);
+    background-size: 66px 66px;
+    -webkit-mask-image: radial-gradient(ellipse at center, black, transparent 82%);
+            mask-image: radial-gradient(ellipse at center, black, transparent 82%);
+  }
+  .content { position: relative; z-index: 2; display: contents; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; font-weight: 500;
+    letter-spacing: 0.26em; text-transform: uppercase;
+    color: #d4ff3d;
+  }
+  .headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 72px; line-height: 1.04;
+    letter-spacing: -0.02em;
+    color: #f6f5f0;
+    max-width: 1010px;
+    margin: 26px 0 0;
+  }
+  .headline em { font-style: italic; font-weight: 500; color: #d4ff3d; }
+  .top { position: relative; z-index: 2; }
+  .foot {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(246,245,240,0.12);
+    padding-top: 26px;
+  }
+  .foot .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 600; color: #f6f5f0;
+  }
+  .foot .cta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #d4ff3d;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="glow"></div>
+    <div class="grid"></div>
+
+    <div class="top">
+      <svg height="62" viewBox="0 0 198 68" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="4" width="60" height="60" rx="14" fill="#d4ff3d"/>
+        <rect x="18" y="20" width="8.5" height="26" rx="2.3" fill="#07070a"/>
+        <rect x="18" y="20" width="23" height="8.5" rx="2.3" fill="#07070a"/>
+        <text x="75" y="41" font-family="Manrope, sans-serif" font-weight="800" font-size="34" letter-spacing="-1.4" fill="#f6f5f0">Gamma</text>
+        <text x="77" y="58" font-family="'JetBrains Mono', monospace" font-weight="600" font-size="10" letter-spacing="4.2" fill="#d4ff3d">TECH GROUP</text>
+      </svg>
+    </div>
+
+    <div>
+      <div class="eyebrow">Atlanta · GA · AI Automation Studio</div>
+      <h1 class="headline">We plug the holes in growing businesses — with <em>AI, automation &amp; custom apps</em>.</h1>
+    </div>
+
+    <div class="foot">
+      <span class="url">gammatechgroup.com</span>
+      <span class="cta">Free Evaluation →</span>
+    </div>
+  </div>
+</body>
+</html>
