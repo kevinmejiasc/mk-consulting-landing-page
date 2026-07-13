@@ -6,7 +6,7 @@
 
 <!-- ============ PRIMARY SEO ============ -->
 <title>AI Agent Development Services | Gamma Tech Group</title>
-<meta name="description" content="Custom AI agents that answer leads, chase invoices, and clear the busywork — designed, built, and run for you. Atlanta-based, serving the US. Book a free evaluation." />
+<meta name="description" content="Custom AI agents that answer leads, chase invoices, and clear the busywork — built and run for you. Atlanta-based, serving the US. Book a free evaluation." />
 <meta name="keywords" content="AI agent development services, AI agent development company, custom AI agent development, build AI agents for business, AI agents for small business, AI automation agency, AI customer service agent development, AI sales agent development, agentic AI consulting, AI agent development Atlanta, custom AI agents Atlanta, AI workflow automation agency" />
 <meta name="author" content="Gamma Tech Group" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -37,6 +37,7 @@
 <meta name="twitter:title" content="AI Agent Development Services | Gamma Tech Group" />
 <meta name="twitter:description" content="Custom AI agents that answer leads, chase invoices, and clear the busywork — built and run for you. Free evaluation." />
 <meta name="twitter:image" content="https://gammatechgroup.com/og-image.png" />
+<meta name="twitter:image:alt" content="Gamma Tech Group — custom AI agent development for growing businesses" />
 
 <!-- ============ JSON-LD: SERVICE ============ -->
 <script type="application/ld+json">
@@ -79,8 +80,8 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead & Reception Agent" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sales Follow-Up Agent" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Scheduling & Reminder Agent" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back-Office & Operations Agent" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Document Processing Agent" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back-Office & Ops Agent" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Document Agent" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Customer Support Agent" } }
     ]
   }
@@ -119,7 +120,7 @@
       "name": "How much does a custom AI agent cost?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every agent is scoped to the specific workflow it automates, so pricing is tied to the deliverable, not a fixed menu. Most engagements start with a paid discovery and blueprint phase, followed by a build priced by scope. We only build agents that pay for themselves — if a workflow won't return more than it costs to automate, we tell you before you spend a dollar. You get a transparent estimate after your free evaluation."
+        "text": "Every agent is scoped to the specific workflow it automates, so pricing is tied to the deliverable, not a fixed menu. Most engagements start with a paid discovery and scoping phase, followed by a build priced by scope. We only build agents that pay for themselves — if a workflow won't return more than it costs to automate, we tell you before you spend a dollar. You get a transparent estimate after your free evaluation."
       }
     },
     {
@@ -247,16 +248,16 @@
     backdrop-filter: blur(20px);
     background: rgba(7, 7, 10, 0.72);
     border-bottom: 1px solid var(--line);
-    padding: 16px 0;
+    padding: 18px 0;
     z-index: 100;
   }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
   .logo { display: flex; align-items: center; text-decoration: none; }
-  .logo-mark { height: 60px; width: auto; display: block; transition: opacity 0.2s; }
+  .logo-mark { height: 64px; width: auto; display: block; transition: opacity 0.2s; }
   .logo:hover .logo-mark { opacity: 0.85; }
 
   .nav-links { display: flex; gap: 32px; align-items: center; list-style: none; }
-  .nav-links a { color: var(--ink-dim); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a { color: var(--ink-dim); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; padding: 8px 2px; }
   .nav-links a:hover { color: var(--ink); }
 
   .btn {
@@ -309,7 +310,7 @@
 
   .hero-title {
     font-family: var(--display); font-weight: 400;
-    font-size: clamp(40px, 5.4vw, 74px); line-height: 1.0; letter-spacing: -0.035em;
+    font-size: clamp(33px, 5.4vw, 74px); line-height: 1.0; letter-spacing: -0.035em;
     margin-bottom: 26px; animation: fadeUp 0.7s ease-out 0.1s backwards;
   }
   .hero-title em { font-style: italic; color: var(--accent); font-weight: 300; }
@@ -345,6 +346,11 @@
   @media (max-width: 940px) {
     .hero-grid { grid-template-columns: 1fr; gap: 44px; }
     .hero { padding: 56px 0 56px; }
+  }
+  @media (max-width: 640px) {
+    /* let long display headings wrap naturally instead of on desktop-tuned breaks */
+    .hero-title br, .section-title br, .cta-headline br, .endcta h2 br { display: none; }
+    .hero-eyebrow { font-size: 11px; padding: 7px 12px; letter-spacing: 0.06em; }
   }
 
   /* ============ AGENT CONSOLE (hero visual) ============ */
@@ -384,6 +390,7 @@
   .console.in-view .console-bar { transform: scaleY(1); }
 
   .console-feed-label { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin: 2px 2px 10px; }
+  .console-cap { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.06em; color: var(--ink-faint); text-align: center; margin-top: 14px; }
   .console-feed { display: flex; flex-direction: column; gap: 9px; }
   .feed-item {
     display: flex; align-items: center; gap: 11px; background: var(--bg-card); border: 1px solid var(--line);
@@ -421,7 +428,7 @@
   @media (max-width: 940px) { .console-stage { max-width: 440px; margin: 0 auto; } }
 
   /* ============ SECTION HEAD ============ */
-  section { padding: 92px 0; position: relative; }
+  section { padding: 100px 0; position: relative; }
   .section-tag { font-family: var(--mono); font-size: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
   .section-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
   .section-title { font-family: var(--display); font-size: clamp(34px, 4.6vw, 60px); font-weight: 400; line-height: 1.05; letter-spacing: -0.025em; max-width: 920px; margin-bottom: 20px; }
@@ -430,8 +437,8 @@
 
   /* ============ MARQUEE ============ */
   .marquee { border-block: 1px solid var(--line); padding: 22px 0; overflow: hidden; background: var(--bg-elevated); }
-  .marquee-track { display: flex; gap: 60px; animation: scroll 34s linear infinite; white-space: nowrap; width: max-content; }
-  .marquee-item { font-family: var(--display); font-size: 21px; font-style: italic; color: var(--ink-dim); display: flex; align-items: center; gap: 60px; }
+  .marquee-track { display: flex; gap: 64px; animation: scroll 32s linear infinite; white-space: nowrap; width: max-content; }
+  .marquee-item { font-family: var(--display); font-size: 22px; font-style: italic; color: var(--ink-dim); display: flex; align-items: center; gap: 64px; }
   .marquee-item::after { content: '✦'; color: var(--accent); font-style: normal; }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -481,7 +488,7 @@
 
   /* ============ COMPARISON TABLE ============ */
   .compare-wrap { border: 1px solid var(--line-strong); border-radius: 24px; overflow: hidden; background: var(--bg-elevated); }
-  .compare-table { width: 100%; border-collapse: collapse; }
+  .compare-table { width: 100%; min-width: 620px; border-collapse: collapse; }
   .compare-table th, .compare-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
   .compare-table tr:last-child th, .compare-table tr:last-child td { border-bottom: none; }
   .compare-table thead th { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); font-weight: 500; background: rgba(0,0,0,0.2); }
@@ -556,6 +563,8 @@
   .cta-bullets svg { flex-shrink: 0; margin-top: 3px; color: var(--accent); }
   .cta-reassure { margin-top: 20px; font-family: var(--mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.02em; }
   .cta-reassure .sep { color: var(--accent); margin: 0 7px; }
+  .cta-proof { margin: 28px auto 0; max-width: 500px; padding-top: 22px; border-top: 1px solid var(--line); font-style: italic; color: var(--ink); font-size: 15px; line-height: 1.55; }
+  .cta-proof span { display: block; margin-top: 8px; font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink-faint); }
   @media (max-width: 620px) { .cta-card { padding: 44px 26px; } }
 
   /* ============ FINAL CTA BAND ============ */
@@ -583,17 +592,17 @@
   details summary::-webkit-details-marker { display: none; }
   .faq-toggle { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line-strong); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--accent); }
   details[open] .faq-toggle { background: var(--accent); color: #07070a; transform: rotate(45deg); }
-  details p { margin-top: 16px; color: var(--ink-dim); font-size: 16px; max-width: 820px; }
+  details p { margin-top: 16px; color: var(--ink-dim); font-size: 16px; max-width: 800px; }
 
   /* ============ FOOTER ============ */
   footer { border-top: 1px solid var(--line); padding: 60px 0 40px; }
   .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 44px; }
-  .footer-brand .logo-mark { height: 50px; }
+  .footer-brand .logo-mark { height: 52px; }
   .footer-brand p { color: var(--ink-dim); margin-top: 16px; max-width: 360px; font-size: 14px; }
   .footer-col h4 { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--ink-faint); margin-bottom: 16px; }
   .footer-col ul { list-style: none; }
   .footer-col li { margin-bottom: 2px; }
-  .footer-col a { color: var(--ink-dim); text-decoration: none; font-size: 14px; transition: color 0.2s; display: inline-block; padding: 7px 0; }
+  .footer-col a { color: var(--ink-dim); text-decoration: none; font-size: 14px; transition: color 0.2s; display: inline-block; padding: 9px 0; }
   .footer-col a:hover { color: var(--accent); }
   .footer-bottom { padding-top: 30px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; color: var(--ink-faint); font-size: 13px; font-family: var(--mono); }
   @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: 32px; } }
@@ -601,11 +610,11 @@
   /* ============ STICKY MOBILE CTA ============ */
   .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: none; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(7,7,10,0.9); backdrop-filter: blur(14px); border-top: 1px solid var(--line-strong); }
   .sticky-cta .btn { width: 100%; justify-content: center; padding: 15px; font-size: 15px; }
-  @media (max-width: 768px) { .sticky-cta { display: block; } .sticky-pad { height: 76px; } }
+  @media (max-width: 768px) { .sticky-cta { display: block; } .sticky-pad { height: calc(84px + env(safe-area-inset-bottom)); } }
 
   /* ============ MODAL ============ */
-  .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(10px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(10px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.3s ease, visibility 0.3s ease; }
+  .modal-overlay.open { opacity: 1; visibility: visible; pointer-events: all; }
   .modal { background: var(--bg-card); border: 1px solid var(--line-strong); border-radius: 24px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(28px) scale(0.98); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); -webkit-overflow-scrolling: touch; }
   .modal-overlay.open .modal { transform: translateY(0) scale(1); }
   .modal::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.7; border-radius: 24px 24px 0 0; pointer-events: none; }
@@ -640,6 +649,8 @@
   @media (prefers-reduced-motion: reduce) {
     .console, .feed-item, .console-bar, .console-chip { opacity: 1 !important; transform: none !important; transition: none !important; }
     .console-bar { transform: scaleY(1) !important; }
+    .hero-eyebrow, .hero-title, .hero-sub, .hero-cta-row, .hero-micro, .hero-trust { animation: none !important; }
+    .hero-eyebrow::before, .console-live .dot, .feed-pill.running .dot { animation: none !important; }
     .marquee-track { animation: none; }
     html { scroll-behavior: auto; }
   }
@@ -664,7 +675,7 @@
       <li class="nav-hide"><a href="#build">What we build</a></li>
       <li class="nav-hide"><a href="#process">Process</a></li>
       <li class="nav-hide"><a href="#faq">FAQ</a></li>
-      <li class="nav-hide"><a class="nav-back" href="/">← All services</a></li>
+      <li class="nav-hide"><a class="nav-back" href="/#services">← All services</a></li>
       <li><a href="#" class="btn btn-primary nav-cta-btn" data-modal>Free Evaluation <span class="btn-arrow">→</span></a></li>
     </ul>
   </div>
@@ -713,12 +724,12 @@
     <!-- Agent console visual -->
     <div class="console-stage" id="consoleStage">
       <div class="console-chip k1">
-        <span class="cc-num">38s</span>
-        <span class="cc-label">average reply, around the clock</span>
+        <span class="cc-num">30s</span>
+        <span class="cc-label">built to reply in seconds, around the clock</span>
       </div>
       <div class="console-chip k2">
-        <span class="cc-num">0</span>
-        <span class="cc-label">leads missed since it went live</span>
+        <span class="cc-num">24/7</span>
+        <span class="cc-label">designed so no lead slips through</span>
       </div>
 
       <div class="console" id="console">
@@ -744,26 +755,27 @@
         <div class="console-feed-label">Just now</div>
         <div class="console-feed">
           <div class="feed-item">
-            <span class="feed-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+            <span class="feed-icon"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
             <span class="feed-body"><span class="feed-title">New lead → replied in 38s</span><span class="feed-sub">qualified &amp; booked</span></span>
             <span class="feed-pill done">✓ Done</span>
           </div>
           <div class="feed-item">
-            <span class="feed-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+            <span class="feed-icon"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
             <span class="feed-body"><span class="feed-title">Invoice #1042 → reminder sent</span><span class="feed-sub">14 days overdue</span></span>
             <span class="feed-pill done">✓ Done</span>
           </div>
           <div class="feed-item">
-            <span class="feed-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+            <span class="feed-icon"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
             <span class="feed-body"><span class="feed-title">Booking → added to calendar</span><span class="feed-sub">confirmation texted</span></span>
             <span class="feed-pill done">✓ Done</span>
           </div>
           <div class="feed-item">
-            <span class="feed-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v5h-5"/></svg></span>
+            <span class="feed-icon"><svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-2.6-6.4"/><path d="M21 3v5h-5"/></svg></span>
             <span class="feed-body"><span class="feed-title">Quote follow-up → sending</span><span class="feed-sub">unopened for 3 days</span></span>
             <span class="feed-pill running"><span class="dot"></span> Live</span>
           </div>
         </div>
+        <div class="console-cap">Illustrative preview — a Gamma agent at work</div>
       </div>
     </div>
   </div>
@@ -799,16 +811,16 @@
       <article class="problem-card">
         <div class="problem-num">01 / Missed revenue</div>
         <div class="problem-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
         </div>
         <h3 class="problem-title">Leads die in the gap</h3>
-        <p class="problem-text">The average inbound waits hours for a reply, and most calls to a busy team go unanswered. By the time someone follows up, the customer already called the next name on the list.</p>
+        <p class="problem-text">Inbound leads can wait hours for a reply, and calls to a busy team too often go unanswered. By the time someone follows up, the customer has already called the next name on the list.</p>
       </article>
 
       <article class="problem-card">
         <div class="problem-num">02 / Wasted hours</div>
         <div class="problem-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <h3 class="problem-title">Your team does robot work</h3>
         <p class="problem-text">Copy-paste, data entry, scheduling, follow-up, status updates — hours a week of low-judgment work quietly eating the payroll you're paying for expertise and judgment.</p>
@@ -817,7 +829,7 @@
       <article class="problem-card">
         <div class="problem-num">03 / The squeeze</div>
         <div class="problem-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
         </div>
         <h3 class="problem-title">You can't hire your way out</h3>
         <p class="problem-text">Wages are up, good people are scarce, and another full-time salary is hard to justify. The work keeps growing; the headcount can't keep pace. So it lands back on you.</p>
@@ -851,25 +863,25 @@
 
     <div class="anatomy-grid">
       <article class="anatomy-card">
-        <div class="anatomy-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 4.1 2.5 5.3.7.7 1.5 1.4 1.5 2.7v1h6v-1c0-1.3.8-2 1.5-2.7C17.8 13.1 19 11.4 19 9a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg></div>
+        <div class="anatomy-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-7 7c0 2.4 1.2 4.1 2.5 5.3.7.7 1.5 1.4 1.5 2.7v1h6v-1c0-1.3.8-2 1.5-2.7C17.8 13.1 19 11.4 19 9a7 7 0 0 0-7-7z"/><path d="M9 21h6"/></svg></div>
         <div class="anatomy-step">01 / Grounded</div>
         <h3 class="anatomy-title">It knows your business</h3>
         <p class="anatomy-text">Grounded in your data, docs, pricing, and FAQs — so it answers from your reality, not a guess off the open internet. That's what keeps it accurate instead of making things up.</p>
       </article>
       <article class="anatomy-card">
-        <div class="anatomy-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M14 7h3a3 3 0 0 1 3 3v1M10 17H7a3 3 0 0 1-3-3v-1"/></svg></div>
+        <div class="anatomy-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><path d="M14 7h3a3 3 0 0 1 3 3v1M10 17H7a3 3 0 0 1-3-3v-1"/></svg></div>
         <div class="anatomy-step">02 / Connected</div>
         <h3 class="anatomy-title">It works in your tools</h3>
         <p class="anatomy-text">Wired into your CRM, inbox, phone, calendar, and QuickBooks. It updates the record, sends the reply, and books the job — right where the work already lives, not in a new app to learn.</p>
       </article>
       <article class="anatomy-card">
-        <div class="anatomy-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <div class="anatomy-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
         <div class="anatomy-step">03 / Autonomous</div>
         <h3 class="anatomy-title">It acts on its own</h3>
         <p class="anatomy-text">Not a suggestion box. The agent completes the task end-to-end: qualifies the lead, sends the follow-up, files the document, chases the invoice — without waiting to be told each step.</p>
       </article>
       <article class="anatomy-card">
-        <div class="anatomy-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="anatomy-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div class="anatomy-step">04 / Governed</div>
         <h3 class="anatomy-title">It knows when to escalate</h3>
         <p class="anatomy-text">Guardrails and a human-in-the-loop for anything high-stakes. It hands off to your team at exactly the right moment — and never guesses on money, safety, or a judgment call it shouldn't make.</p>
@@ -887,44 +899,44 @@
 
     <div class="build-grid">
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
         <h3 class="build-title">Lead &amp; Reception Agent</h3>
-        <p class="build-text">Answers every call, text, and form in under a minute, qualifies the lead, and books the job straight into your calendar — so nothing goes to voicemail and no one waits.</p>
+        <p class="build-text">Answers calls, texts, and forms in under a minute, qualifies the lead, and books the job straight into your calendar — so leads stop going to voicemail and prospects aren't left waiting.</p>
         <p class="build-2am"><b>2:00 AM →</b> emergency call triaged, on-call tech texted, customer confirmed.</p>
       </article>
 
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></div>
         <h3 class="build-title">Sales Follow-Up Agent</h3>
-        <p class="build-text">Chases quotes, nurtures cold leads, and never lets an inbound go quiet — with on-brand, human-sounding follow-up that keeps deals moving while you're heads-down.</p>
+        <p class="build-text">Chases quotes, nurtures cold leads, and keeps inbounds from going quiet — with on-brand, human-sounding follow-up that keeps deals moving while you're heads-down.</p>
         <p class="build-2am"><b>Day 3 →</b> quote still unopened, so a personalized nudge goes out automatically.</p>
       </article>
 
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></div>
         <h3 class="build-title">Scheduling &amp; Reminder Agent</h3>
         <p class="build-text">Books, confirms, and reschedules appointments on its own, then cuts no-shows with automatic reminders that fill the gaps in your calendar before they cost you.</p>
         <p class="build-2am"><b>No-show risk →</b> reminder plus a one-tap reschedule link sent ahead of time.</p>
       </article>
 
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v6H4zM4 14h16v6H4z"/><path d="M8 7h.01M8 17h.01"/></svg></div>
         <h3 class="build-title">Back-Office &amp; Ops Agent</h3>
         <p class="build-text">Data entry, CRM hygiene, invoicing, and AR follow-up — the admin that never ends, handled quietly in the background so your team stops being the integration layer.</p>
         <p class="build-2am"><b>Invoice overdue →</b> polite reminder sent, payment logged, CRM updated.</p>
       </article>
 
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></div>
         <h3 class="build-title">Document Agent</h3>
         <p class="build-text">Reads intake forms, contracts, and invoices, extracts what matters, and files it where it belongs — turning hours of manual processing into seconds of review.</p>
         <p class="build-2am"><b>New contract →</b> key terms extracted, logged, and anything unusual flagged.</p>
       </article>
 
       <article class="build-card">
-        <div class="build-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div class="build-icon"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3 class="build-title">Customer Support Agent</h3>
-        <p class="build-text">Resolves the routine questions instantly from your own knowledge base and routes the rest to a human with full context — no ticket left sitting overnight.</p>
+        <p class="build-text">Resolves routine questions in seconds from your own knowledge base and routes the rest to a human with full context — so tickets don't sit overnight.</p>
         <p class="build-2am"><b>Order-status question →</b> answered from your data in seconds, any time.</p>
       </article>
     </div>
@@ -938,6 +950,10 @@
       <span class="ind-chip">Healthcare</span>
       <span class="ind-chip">Legal</span>
       <span class="ind-chip">…and whatever your business actually does</span>
+    </div>
+
+    <div class="mid-cta">
+      <a href="#" class="btn btn-primary" data-modal>Get My Free AI Agent Evaluation <span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -1016,28 +1032,28 @@
           <div class="step-num">01</div>
           <div class="step-line"></div>
           <div class="step-when">Day 0 · Free</div>
-          <h4 class="step-title">Discover</h4>
+          <h3 class="step-title">Discover</h3>
           <p class="step-text">A focused 30-minute evaluation. You describe the busywork; we tell you straight whether an agent can kill it — and what it's worth to you.</p>
         </div>
         <div class="step">
           <div class="step-num">02</div>
           <div class="step-line"></div>
           <div class="step-when">Week 1</div>
-          <h4 class="step-title">Blueprint</h4>
-          <p class="step-text">We map the exact agent, the systems it touches, and the one number it moves. You approve a fixed scope — no mystery pricing, no scope creep.</p>
+          <h3 class="step-title">Scope</h3>
+          <p class="step-text">We map the exact agent, the systems it touches, and the one number it moves, then hand you a fixed scope and price to approve — no mystery pricing, no scope creep.</p>
         </div>
         <div class="step">
           <div class="step-num">03</div>
           <div class="step-line"></div>
           <div class="step-when">Weeks 2–4</div>
-          <h4 class="step-title">Build &amp; integrate</h4>
+          <h3 class="step-title">Build &amp; integrate</h3>
           <p class="step-text">We build against your real data and stack, ground it, add guardrails, and test under real load — not clean demo data that looks good on a slide.</p>
         </div>
         <div class="step">
           <div class="step-num">04</div>
           <div class="step-line"></div>
           <div class="step-when">Day 30 →</div>
-          <h4 class="step-title">Launch &amp; run</h4>
+          <h3 class="step-title">Launch &amp; run</h3>
           <p class="step-text">Your agent goes live and we stay on it — monitoring, refining, and expanding as your tools and workflows change. You're never left babysitting it.</p>
         </div>
       </div>
@@ -1080,14 +1096,14 @@
   <div class="container">
     <div class="section-tag">Proof</div>
     <h2 class="section-title">Real Atlanta businesses.<br /><em>Systems that run themselves.</em></h2>
-    <p class="section-lead">A few of the companies we've built sales automation, workflow systems, and custom software for.</p>
+    <p class="section-lead">The automation systems and custom software we've shipped for real businesses — the same operational foundation our AI agents plug into.</p>
 
     <div class="work-grid">
       <article class="work-card">
         <div class="work-logo">OU</div>
         <div class="work-industry">Fitness Program Agency</div>
         <h3 class="work-name">Olympic United</h3>
-        <p class="work-built">Built a sales-automation system and a custom mobile app to run and deliver their fitness programs.</p>
+        <p class="work-built">A sales-automation system and a custom mobile app that automate how they enroll, deliver, and follow up with members across their fitness programs.</p>
         <p class="work-quote">"Gamma Tech Group engineered our sales automation and fitness app from the ground up, and it completely transformed how we enroll and retain members."</p>
         <p class="work-attr">— Deivi B., Owner</p>
         <div class="work-tags"><span>Sales Automation</span><span>Mobile App</span></div>
@@ -1097,7 +1113,7 @@
         <div class="work-logo">MJB</div>
         <div class="work-industry">Remodeling Company</div>
         <h3 class="work-name">MJB Pro Painters</h3>
-        <p class="work-built">Web and mobile app development paired with workflow automation across their remodeling operation.</p>
+        <p class="work-built">Workflow automation across their remodeling operation — estimates, approvals, and updates running through one automated system — paired with web and mobile apps.</p>
         <p class="work-quote">"Since Gamma Tech Group rebuilt our workflows, estimates, approvals, and updates all run through one automated system — no more lost messages or missed steps."</p>
         <p class="work-attr">— Emmanuel G., Owner</p>
         <div class="work-tags"><span>Web &amp; Mobile App</span><span>Workflow Automation</span></div>
@@ -1107,7 +1123,7 @@
         <div class="work-logo">RC</div>
         <div class="work-industry">Construction Company</div>
         <h3 class="work-name">Rocco's Contracting</h3>
-        <p class="work-built">Sales automation plus web and mobile apps to streamline their construction sales pipeline.</p>
+        <p class="work-built">Sales automation with web and mobile apps that keep their construction pipeline moving — capturing leads and following up automatically.</p>
         <p class="work-quote">"Gamma Tech Group modernized our sales pipeline with automation and apps that help us capture more leads and close projects faster."</p>
         <p class="work-attr">— Anthony C., Owner</p>
         <div class="work-tags"><span>Sales Automation</span><span>Web &amp; Mobile App</span></div>
@@ -1125,15 +1141,15 @@
       <p class="cta-sub">Book a free 30-minute evaluation. We'll pinpoint the workflow costing you the most, show you the exact agent that would handle it, and hand you the plan — yours to keep whether or not we build it.</p>
       <ul class="cta-bullets">
         <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           <span>30 focused minutes, on Zoom — no prep, no slides</span>
         </li>
         <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           <span>You talk to the person who builds the agent — not a sales rep</span>
         </li>
         <li>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
           <span>Walk away with a blueprint and a real number — no obligation</span>
         </li>
       </ul>
@@ -1141,6 +1157,7 @@
         Get My Free AI Agent Evaluation <span class="btn-arrow">→</span>
       </button>
       <p class="cta-reassure">Your data stays yours<span class="sep">·</span>We only build what pays for itself<span class="sep">·</span>We reply within 1 business day</p>
+      <p class="cta-proof">"Gamma Tech Group engineered our sales automation and fitness app from the ground up, and it completely transformed how we enroll and retain members."<span>— Deivi B., Owner · Olympic United</span></p>
     </div>
   </div>
 </section>
@@ -1157,7 +1174,7 @@
       </details>
       <details>
         <summary>How much does a custom AI agent cost? <span class="faq-toggle">+</span></summary>
-        <p>Every agent is scoped to the specific workflow it automates, so pricing is tied to the deliverable, not a fixed menu. Most engagements start with a paid discovery and blueprint phase, followed by a build priced by scope. We only build agents that pay for themselves — if a workflow won't return more than it costs to automate, we tell you before you spend a dollar. You get a transparent estimate after your free evaluation.</p>
+        <p>Every agent is scoped to the specific workflow it automates, so pricing is tied to the deliverable, not a fixed menu. Most engagements start with a paid discovery and scoping phase, followed by a build priced by scope. We only build agents that pay for themselves — if a workflow won't return more than it costs to automate, we tell you before you spend a dollar. You get a transparent estimate after your free evaluation.</p>
       </details>
       <details>
         <summary>How long until my AI agent is live? <span class="faq-toggle">+</span></summary>
@@ -1249,7 +1266,7 @@
 <div class="sticky-pad" aria-hidden="true"></div>
 
 <!-- ============ MODAL ============ -->
-<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Free AI agent evaluation request">
   <div class="modal" id="modal">
     <div class="modal-header">
       <div style="display:flex;align-items:center;gap:10px;">
@@ -1271,14 +1288,14 @@
         </div>
         <div class="field">
           <label for="m-name">Full name *</label>
-          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" />
+          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required aria-required="true" />
         </div>
         <div class="field">
           <label for="m-email">Work email *</label>
-          <input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
+          <input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required aria-required="true" />
         </div>
         <div class="field">
-          <label for="m-phone">Phone number *</label>
+          <label for="m-phone">Phone number <span style="color:var(--ink-faint);text-transform:none;letter-spacing:0;">(optional)</span></label>
           <input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
         </div>
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
@@ -1302,7 +1319,7 @@
         <div class="form-row">
           <div class="field">
             <label for="m-revenue">Annual revenue *</label>
-            <select id="m-revenue" name="revenue">
+            <select id="m-revenue" name="revenue" required aria-required="true">
               <option value="">Select range</option>
               <option>Under $250K</option>
               <option>$250K – $1M</option>
@@ -1313,7 +1330,7 @@
           </div>
           <div class="field">
             <label for="m-industry">Industry *</label>
-            <select id="m-industry" name="industry">
+            <select id="m-industry" name="industry" required aria-required="true">
               <option value="">Select industry</option>
               <option>Home Services / Trades</option>
               <option>Real Estate</option>
@@ -1332,7 +1349,7 @@
         </div>
         <div class="field">
           <label for="m-friction">What work should the agent take over? *</label>
-          <textarea id="m-friction" name="friction" style="min-height:88px" placeholder="e.g. answering and qualifying inbound leads, chasing unpaid invoices, booking appointments, processing intake forms..."></textarea>
+          <textarea id="m-friction" name="friction" style="min-height:88px" required aria-required="true" placeholder="e.g. answering and qualifying inbound leads, chasing unpaid invoices, booking appointments, processing intake forms..."></textarea>
         </div>
         <div class="field">
           <label for="m-whynow">Why now?</label>
@@ -1348,13 +1365,13 @@
             Submit <span>→</span>
           </button>
         </div>
-        <p class="modal-fineprint">We respond within 1 business day.</p>
+        <p class="modal-fineprint">Free · no obligation · no sales pitch · we reply within 1 business day.</p>
       </div>
 
       <!-- Success -->
       <div class="modal-success" id="modalSuccess">
         <div class="modal-success-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <h3>You're in. ✦</h3>
         <p>We received your request. Taking you to the calendar now so you can lock in your free evaluation — pick any time that works.</p>
@@ -1381,15 +1398,40 @@
   const step2     = document.getElementById('step2');
   const success   = document.getElementById('modalSuccess');
 
+  const modal = document.getElementById('modal');
+  const bgEls = [document.querySelector('main'), document.querySelector('nav'), document.querySelector('footer'), document.querySelector('.sticky-cta')];
+  let lastFocused = null;
+
+  function setBackgroundInert(on) {
+    bgEls.forEach(el => { if (!el) return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
+  }
+  function focusablesIn(container) {
+    return Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'))
+      .filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
+  }
   function openModal() {
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
+    setBackgroundInert(true);
     setTimeout(() => document.getElementById('m-name').focus(), 350);
   }
   function closeModal() {
+    if (!overlay.classList.contains('open')) return;
     overlay.classList.remove('open');
     document.body.style.overflow = '';
+    setBackgroundInert(false);
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
+
+  // Trap Tab focus inside the open modal (only the active step is visible/focusable)
+  modal.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const f = focusablesIn(modal);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
   function goToStep2() {
     step1.classList.remove('active');
     step2.classList.add('active');
@@ -1414,19 +1456,21 @@
   }
 
   document.querySelectorAll('[data-modal]').forEach(el => {
-    el.addEventListener('click', e => { e.preventDefault(); openModal(); });
+    el.addEventListener('click', e => { e.preventDefault(); lastFocused = e.currentTarget; openModal(); });
   });
   document.getElementById('modalClose').addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
   // Step 1 → Step 2 (validate contact fields)
   document.getElementById('nextBtn').addEventListener('click', () => {
-    const name  = document.getElementById('m-name').value.trim();
-    const email = document.getElementById('m-email').value.trim();
-    const phone = document.getElementById('m-phone').value.trim();
-    if (!name || !email || !phone) { alert('Please fill in your name, email, and phone number.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); return; }
+    const nameEl = document.getElementById('m-name');
+    const emailEl = document.getElementById('m-email');
+    const name  = nameEl.value.trim();
+    const email = emailEl.value.trim();
+    if (!name)  { alert('Please add your name.');  nameEl.focus();  return; }
+    if (!email) { alert('Please add your email.'); emailEl.focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); emailEl.focus(); return; }
     goToStep2();
   });
   document.getElementById('backBtn').addEventListener('click', goToStep1);
@@ -1436,7 +1480,9 @@
     const revenue  = document.getElementById('m-revenue').value;
     const industry = document.getElementById('m-industry').value;
     const friction = document.getElementById('m-friction').value.trim();
-    if (!revenue || !industry || !friction) { alert('Please fill in revenue, industry, and the workflow you want handled.'); return; }
+    if (!revenue)  { alert('Please select your annual revenue.'); document.getElementById('m-revenue').focus();  return; }
+    if (!industry) { alert('Please select your industry.');       document.getElementById('m-industry').focus(); return; }
+    if (!friction) { alert('Please tell us what work the agent should take over.'); document.getElementById('m-friction').focus(); return; }
 
     const data = {
       name:     document.getElementById('m-name').value.trim(),
@@ -1471,7 +1517,7 @@
     showSuccess();
 
     const calUrl = document.getElementById('calBtn').href;
-    setTimeout(() => { window.location.href = calUrl; }, 2200);
+    setTimeout(() => { window.location.href = calUrl; }, 3200);
   });
 
   // ── Smooth scroll (non-modal anchor links only) ──
@@ -1479,7 +1525,11 @@
     a.addEventListener('click', e => {
       if (a.hasAttribute('data-modal') || a.getAttribute('href') === '#') return;
       const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      if (target) {
+        e.preventDefault();
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      }
     });
   });
 
