@@ -6,12 +6,16 @@
 Gamma Tech Group maps operational workflows, identifies the friction points costing time and money, and deploys a tailored mix of AI agents, software integrations, automation, and custom mobile/web applications to remove them — so teams focus on revenue instead of repetition. Based in Atlanta, GA; serving clients across the United States.
 
 ## Services
+- AI Agent Development — custom AI agents that autonomously handle real workflows (lead response, sales follow-up, scheduling, back-office ops, document processing, customer support), built into the tools a business already uses and typically live in ~30 days. Details: https://gammatechgroup.com/services/ai-agent-development/
 - AI Automation — custom AI agents built around real workflows
 - AI Implementation — integrating AI into existing operations and tools
 - Business Automation — removing repetitive manual work
 - Software Integration — connecting disconnected tools and systems
 - Mobile & Web App Development — custom apps with AI and automation built in
 - Workflow Consulting — auditing operations and finding bottlenecks
+
+## Service pages
+- AI Agent Development: https://gammatechgroup.com/services/ai-agent-development/ — done-for-you custom AI agent design, build, integration, and maintenance for US businesses. Atlanta-based. Free 30-minute evaluation.
 
 ## Who it's for
 Businesses generating $250K+ in annual revenue that are bottlenecked by manual processes, disconnected software, or admin work that distracts from growth.

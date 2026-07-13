@@ -126,6 +126,7 @@ function buildEmail(data) {
       ${row('Friction', data.friction)}
       ${row('Why now', data.whynow)}
       ${row('Other', data.other)}
+      ${row('Source', data.source)}
     </table>
     <div style="padding:14px 24px;background:#fafafa;color:#8a8a96;font-size:12px;">Reply to this email to respond directly to the prospect.</div>
   </div>`;
