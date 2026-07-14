@@ -27,7 +27,7 @@
 <meta property="og:description" content="We design, build, and run custom AI agents that take repetitive work off your team — support, scheduling, follow-ups, back-office ops, and more, for any industry. Atlanta-based, serving the US." />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Gamma Tech Group" />
-<meta property="og:image" content="https://gammatechgroup.com/og-image.png" />
+<meta property="og:image" content="https://gammatechgroup.com/services/ai-agent-development/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Gamma Tech Group — custom AI agent development for growing businesses" />
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="AI Agent Development Services | Gamma Tech Group" />
 <meta name="twitter:description" content="Custom AI agents for any workflow, any industry — support, ops, scheduling, follow-ups, and more. Built and run for you. Free evaluation." />
-<meta name="twitter:image" content="https://gammatechgroup.com/og-image.png" />
+<meta name="twitter:image" content="https://gammatechgroup.com/services/ai-agent-development/og.png" />
 <meta name="twitter:image:alt" content="Gamma Tech Group — custom AI agent development for growing businesses" />
 
 <!-- ============ JSON-LD: SERVICE ============ -->
@@ -518,6 +518,16 @@
 
   .mid-cta { display: flex; justify-content: center; margin-top: 48px; }
 
+  /* ============ CROSS-LINK CALLOUT ============ */
+  .xlink { display: flex; gap: 20px; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--line-strong); border-left: 3px solid var(--accent); border-radius: 18px; padding: 28px 30px; margin-top: 40px; }
+  .xlink-ico { width: 46px; height: 46px; flex-shrink: 0; border-radius: 12px; background: rgba(212,255,61,0.08); border: 1px solid rgba(212,255,61,0.2); display: grid; place-items: center; color: var(--accent); }
+  .xlink h3 { font-family: var(--display); font-size: 22px; font-weight: 500; letter-spacing: -0.015em; margin-bottom: 8px; }
+  .xlink p { color: var(--ink-dim); font-size: 15px; line-height: 1.65; }
+  .xlink p b { color: var(--ink); font-weight: 600; }
+  .xlink a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(212,255,61,0.3); }
+  .xlink a:hover { border-bottom-color: var(--accent); }
+  @media (max-width: 620px) { .xlink { flex-direction: column; gap: 16px; padding: 24px; } }
+
   /* ============ OUTCOMES ============ */
   .outcome-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
   .outcome-big { background: var(--accent); color: #07070a; padding: 52px; border-radius: 24px; position: relative; overflow: hidden; }
@@ -952,6 +962,14 @@
       <span class="ind-chip">…and whatever your business actually does</span>
     </div>
 
+    <div class="xlink">
+      <div class="xlink-ico"><svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></div>
+      <div>
+        <h3>Don't need reasoning — just reliable plumbing?</h3>
+        <p>If the task follows fixed rules — move this data, sync these tools, send that report — you may not need an agent at all. That's <b>software automation</b>, and it's cheaper and more predictable. See <a href="/services/software-automation/">Business Process Automation</a>. Many businesses run automation as the backbone and add agents only where a task genuinely needs judgment — we build both and will tell you which each job needs.</p>
+      </div>
+    </div>
+
     <div class="mid-cta">
       <a href="#" class="btn btn-primary" data-modal>Get My Free AI Agent Evaluation <span class="btn-arrow">→</span></a>
     </div>
@@ -1246,6 +1264,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/services/">All services</a></li>
+          <li><a href="/services/software-automation/">Software Automation</a></li>
           <li><a href="/services/online-presence/">Online Presence</a></li>
           <li><a href="/services/engineering-on-demand/">Engineering on Demand</a></li>
           <li><a href="/services/website-development/">Website Development</a></li>
