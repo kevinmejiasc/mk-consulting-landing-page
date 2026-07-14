@@ -15,6 +15,7 @@ Gamma Tech Group maps operational workflows, identifies the friction points cost
 - Workflow Consulting — auditing operations and finding bottlenecks
 
 ## Service pages
+- All services (hub): https://gammatechgroup.com/services/
 - AI Agent Development: https://gammatechgroup.com/services/ai-agent-development/ — done-for-you custom AI agent design, build, integration, and maintenance for US businesses. Atlanta-based. Free 30-minute evaluation.
 - Website Development: https://gammatechgroup.com/services/website-development/ — custom website design & development for small and mid-market businesses: fast, mobile-first, SEO-ready, conversion-focused sites (lead-gen, booking, e-commerce, web apps, landing pages, redesigns) with lead capture and booking built in. You own the code and content. Atlanta-based, serving the US. Free 30-minute evaluation.
 - App Development: https://gammatechgroup.com/services/app-development/ — done-for-you custom mobile (iOS & Android) and web app development for founders and growing businesses: customer apps, internal tools, client portals, SaaS MVPs, marketplaces, and AI-powered features. One codebase across iOS/Android/web, a real MVP in weeks, and you own the code and IP. Atlanta-based, serving the US. Free 30-minute evaluation.
