@@ -77,7 +77,9 @@ export default {
           from: env.FROM_EMAIL || 'Gamma Tech Group <onboarding@resend.dev>',
           to: [env.NOTIFY_TO],
           reply_to: email || undefined,
-          subject: `🚀 New lead: ${name}${data.industry ? ` (${data.industry})` : ''}`,
+          subject: data.stage === 'abandoned-step2'
+            ? `⚠️ Partial lead (didn't finish): ${name}`
+            : `🚀 New lead: ${name}${data.revenue ? ` — ${data.revenue}` : ''}${data.qualified === 'no' ? ' [below $250K]' : ''}`,
           html: buildEmail(data),
         }),
       });
@@ -120,13 +122,14 @@ function buildEmail(data) {
     <table style="width:100%;border-collapse:collapse;">
       ${row('Name', data.name)}
       ${row('Email', data.email)}
-      ${row('Phone', data.phone)}
+      ${row('Fit', data.qualified === 'yes' ? '✅ $250K+ (booking path)' : data.qualified === 'no' ? '⚠️ Below $250K (nurture)' : '')}
+      ${row('Status', data.stage === 'abandoned-step2' ? '⚠️ Did not finish — captured from step 1' : '')}
       ${row('Revenue', data.revenue)}
       ${row('Industry', data.industry)}
-      ${row('Friction', data.friction)}
-      ${row('Why now', data.whynow)}
+      ${row('Wants fixed first', data.friction)}
       ${row('Other', data.other)}
       ${row('Source', data.source)}
+      ${row('Phone', data.phone)}
     </table>
     <div style="padding:14px 24px;background:#fafafa;color:#8a8a96;font-size:12px;">Reply to this email to respond directly to the prospect.</div>
   </div>`;

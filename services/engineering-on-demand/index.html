@@ -511,6 +511,13 @@
   .field input, .field select, .field textarea { width: 100%; background: rgba(0, 0, 0, 0.3); border: 1px solid var(--line-strong); border-radius: 12px; padding: 14px 16px; color: var(--ink); font-family: var(--body); font-size: 15px; transition: all 0.25s; }
   .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: rgba(212, 255, 61, 0.04); }
   .field textarea { resize: vertical; min-height: 100px; }
+  /* inline validation + notices */
+  .field.error input, .field.error select, .field.error textarea { border-color: var(--accent-warm); background: rgba(255,87,34,0.06); }
+  .field-error { display: none; font-family: var(--body); font-size: 12.5px; color: var(--accent-warm); margin-top: 6px; letter-spacing: 0; text-transform: none; }
+  .field.error .field-error { display: block; }
+  .modal-notice { display: none; font-size: 13px; color: var(--ink); background: rgba(255,87,34,0.1); border: 1px solid rgba(255,87,34,0.35); border-radius: 10px; padding: 11px 13px; margin-top: 6px; }
+  .modal-notice.show { display: block; }
+  .modal-notice a { color: var(--accent); }
   .field select { cursor: pointer; }
   .field select option { background: var(--bg-card); }
   .submit-btn { background: var(--accent); color: #07070a; border: none; padding: 18px 32px; border-radius: 100px; font-family: var(--body); font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.25s; margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
@@ -1198,23 +1205,22 @@
     </div>
 
     <div class="modal-body">
-      <!-- Step 1: Contact info -->
+
+      <!-- Step 1: Contact -->
       <div class="modal-form-step active" id="step1">
         <div>
-          <h2 class="modal-step-title" id="modalTitle">Let's scope your <em>build</em></h2>
-          <p class="modal-step-sub">Takes under 2 minutes — no commitment.</p>
+          <h2 class="modal-step-title" id="modalTitle">Let's get <em>introduced</em></h2>
+          <p class="modal-step-sub">Takes under a minute — no commitment.</p>
         </div>
         <div class="field">
           <label for="m-name">Full name *</label>
           <input id="m-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required aria-required="true" />
+          <p class="field-error">Please enter your name.</p>
         </div>
         <div class="field">
           <label for="m-email">Work email *</label>
           <input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required aria-required="true" />
-        </div>
-        <div class="field">
-          <label for="m-phone">Phone number <span style="color:var(--ink-faint);text-transform:none;letter-spacing:0;">(optional)</span></label>
-          <input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" />
+          <p class="field-error">Please enter a valid email address.</p>
         </div>
         <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
           <label for="m-website">Website (leave this blank)</label>
@@ -1222,17 +1228,17 @@
         </div>
         <div class="modal-actions">
           <button type="button" class="submit-btn" id="nextBtn" style="flex:1;">
-            Next — About the Work <span>→</span>
+            Next — A bit about you <span>→</span>
           </button>
         </div>
         <p class="modal-fineprint">Your info stays with us — never sold, never shared.</p>
       </div>
 
-      <!-- Step 2: Business info -->
+      <!-- Step 2: Qualify -->
       <div class="modal-form-step" id="step2">
         <div>
-          <h2 class="modal-step-title">Tell us about the <em>work</em></h2>
-          <p class="modal-step-sub">Help us prepare for your evaluation.</p>
+          <h2 class="modal-step-title">A bit about your <em>business</em></h2>
+          <p class="modal-step-sub">So we can tailor the evaluation to your stage.</p>
         </div>
         <div class="form-row">
           <div class="field">
@@ -1245,19 +1251,19 @@
               <option>$5M – $25M</option>
               <option>$25M+</option>
             </select>
+            <p class="field-error">Please select your revenue range.</p>
           </div>
           <div class="field">
-            <label for="m-industry">Industry *</label>
-            <select id="m-industry" name="industry" required aria-required="true">
+            <label for="m-industry">Industry <span style="color:var(--ink-faint);text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <select id="m-industry" name="industry">
               <option value="">Select industry</option>
-              <option>Home Services / Trades</option>
-              <option>Real Estate</option>
               <option>Professional Services</option>
               <option>E-commerce / Retail</option>
+              <option>Real Estate</option>
               <option>Legal / Law Firm</option>
               <option>Accounting / Finance</option>
               <option>Healthcare / Medical</option>
-              <option>Construction</option>
+              <option>Construction / Trades</option>
               <option>Marketing / Agency</option>
               <option>Technology / SaaS</option>
               <option>Restaurant / Hospitality</option>
@@ -1266,16 +1272,13 @@
           </div>
         </div>
         <div class="field">
-          <label for="m-friction">What do you need built, finished, or fixed? *</label>
-          <textarea id="m-friction" name="friction" style="min-height:88px" required aria-required="true" placeholder="e.g. clear a feature backlog, embed an engineer on our team, rescue a stalled build, add a fractional CTO..."></textarea>
+          <label for="m-friction">The one thing you'd most want us to fix or build first *</label>
+          <input id="m-friction" name="friction" type="text" autocomplete="off" placeholder="e.g. quotes take us 3 days and we lose deals" required aria-required="true" />
+          <p class="field-error">One line is all we need.</p>
         </div>
         <div class="field">
-          <label for="m-whynow">Why now?</label>
-          <textarea id="m-whynow" name="whynow" style="min-height:72px" placeholder="What's making this a priority right now?"></textarea>
-        </div>
-        <div class="field">
-          <label for="m-other">Anything else?</label>
-          <textarea id="m-other" name="other" style="min-height:72px" placeholder="Your stack, timeline, and how much capacity you think you need..."></textarea>
+          <label for="m-other">Anything else? <span style="color:var(--ink-faint);text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <textarea id="m-other" name="other" style="min-height:72px" placeholder="Any context that would help us prepare…"></textarea>
         </div>
         <div class="modal-actions">
           <button type="button" class="btn-back" id="backBtn">← Back</button>
@@ -1283,20 +1286,31 @@
             Submit <span>→</span>
           </button>
         </div>
-        <p class="modal-fineprint">Free · no obligation · no sales pitch · we reply within 1 business day.</p>
+        <div class="modal-notice" id="modalNotice">Something went wrong sending that — please try again, or email <a href="mailto:hello@gammatechgroup.com">hello@gammatechgroup.com</a>.</div>
+        <p class="modal-fineprint">We reply within 1 business day.</p>
       </div>
 
-      <!-- Success -->
+      <!-- Success: qualified ($250K+) → booking -->
       <div class="modal-success" id="modalSuccess">
         <div class="modal-success-icon">
-          <svg aria-hidden="true" focusable="false" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <h3>You're in. ✦</h3>
-        <p>We received your request. Taking you to the calendar now so you can lock in your free evaluation — pick any time that works.</p>
+        <p>Last step — pick a time for your free 30-minute evaluation. Grab whatever works; we'll send a reminder so it doesn't slip.</p>
         <a id="calBtn" href="https://scheduler.zoom.us/kevin-mejias/gammatechgroup" rel="noopener" class="calendly-btn">
-          Schedule Your Free Evaluation <span>→</span>
+          Pick Your Time <span>→</span>
         </a>
-        <p class="modal-fineprint">Redirecting you to the calendar… or tap the button above.</p>
+        <p class="modal-fineprint">Prefer email? We'll follow up within 1 business day either way.</p>
+      </div>
+
+      <!-- Success: below floor → nurture (no calendar) -->
+      <div class="modal-success" id="modalNurture">
+        <div class="modal-success-icon">
+          <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Thanks — we've got your details. ✦</h3>
+        <p>Our done-for-you builds are the best fit for teams doing $250K+ a year. Based on what you shared, we'll follow up with the most useful next step for where you're at right now — keep an eye on your inbox.</p>
+        <p class="modal-fineprint">We reply within 1 business day.</p>
       </div>
     </div>
   </div>
@@ -1305,9 +1319,18 @@
 <script>
   // ── Lead capture endpoint (shared with the homepage Worker) ──
   const LEAD_ENDPOINT = 'https://gamma-lead.clementesfe.workers.dev/';
-  const LEAD_SOURCE = 'Engineering on Demand page';
+  const LEAD_SOURCE   = 'Engineering on Demand page';
+  const REVENUE_FLOOR = 'Under $250K'; // below this → nurture path (no calendar)
 
-  // ── Modal ──
+  // Tool-agnostic analytics (no-op if none installed)
+  function track(evt, props) {
+    props = props || {};
+    try { if (window.gtag) window.gtag('event', evt, props); } catch (e) {}
+    try { if (window.plausible) window.plausible(evt, { props: props }); } catch (e) {}
+    try { if (window.dataLayer) window.dataLayer.push(Object.assign({ event: evt }, props)); } catch (e) {}
+    if (window.console) console.log('[track]', evt, props);
+  }
+
   const overlay   = document.getElementById('modalOverlay');
   const bar1      = document.getElementById('bar1');
   const bar2      = document.getElementById('bar2');
@@ -1315,23 +1338,35 @@
   const step1     = document.getElementById('step1');
   const step2     = document.getElementById('step2');
   const success   = document.getElementById('modalSuccess');
+  const nurture   = document.getElementById('modalNurture');
+  const modalEl   = overlay.querySelector('.modal');
+  const bgEls     = [document.querySelector('main'), document.querySelector('nav'), document.querySelector('footer'), document.querySelector('.sticky-cta')];
+  let lastFocused = null, step1Done = false, submitted = false;
 
-  const modal = document.getElementById('modal');
-  const bgEls = [document.querySelector('main'), document.querySelector('nav'), document.querySelector('footer'), document.querySelector('.sticky-cta')];
-  let lastFocused = null;
+  const STORE_KEY = 'gtg_lead_v1';
+  const FIELD_IDS = ['m-name', 'm-email', 'm-revenue', 'm-industry', 'm-friction', 'm-other'];
 
-  function setBackgroundInert(on) {
-    bgEls.forEach(el => { if (!el) return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); });
-  }
-  function focusablesIn(container) {
-    return Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'))
-      .filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement);
-  }
+  function saveState() { try { const o = {}; FIELD_IDS.forEach(id => { const el = document.getElementById(id); if (el) o[id] = el.value; }); sessionStorage.setItem(STORE_KEY, JSON.stringify(o)); } catch (e) {} }
+  function restoreState() { try { const o = JSON.parse(sessionStorage.getItem(STORE_KEY) || '{}'); FIELD_IDS.forEach(id => { const el = document.getElementById(id); if (el && o[id]) el.value = o[id]; }); } catch (e) {} }
+  function clearState() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) {} }
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function setError(id, msg) { const el = document.getElementById(id); if (!el) return; const f = el.closest('.field'); if (!f) return; f.classList.add('error'); el.setAttribute('aria-invalid', 'true'); const m = f.querySelector('.field-error'); if (m && msg) m.textContent = msg; }
+  function clearError(id) { const el = document.getElementById(id); if (!el) return; const f = el.closest('.field'); if (!f) return; f.classList.remove('error'); el.removeAttribute('aria-invalid'); }
+  function focusFirstError(scope) { const el = document.querySelector(scope + ' .field.error input, ' + scope + ' .field.error select'); if (el) el.focus(); }
+
+  FIELD_IDS.forEach(id => { const el = document.getElementById(id); if (!el) return; el.addEventListener('input', saveState); el.addEventListener('input', function () { clearError(id); }); el.addEventListener('change', function () { clearError(id); }); });
+
+  function setBackgroundInert(on) { bgEls.forEach(el => { if (!el) return; on ? el.setAttribute('inert', '') : el.removeAttribute('inert'); }); }
+  function focusablesIn(container) { return Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetWidth > 0 || el.offsetHeight > 0 || el === document.activeElement); }
+
   function openModal() {
+    restoreState();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     setBackgroundInert(true);
-    setTimeout(() => document.getElementById('m-name').focus(), 350);
+    track('lead_modal_open', { source: LEAD_SOURCE });
+    setTimeout(() => { const n = document.getElementById('m-name'); if (n) n.focus(); }, 350);
   }
   function closeModal() {
     if (!overlay.classList.contains('open')) return;
@@ -1341,102 +1376,66 @@
     if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
 
-  // Trap Tab focus inside the open modal (only the active step is visible/focusable)
-  modal.addEventListener('keydown', e => {
+  if (modalEl) modalEl.addEventListener('keydown', e => {
     if (e.key !== 'Tab') return;
-    const f = focusablesIn(modal);
+    const f = focusablesIn(modalEl);
     if (!f.length) return;
     const first = f[0], last = f[f.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
-  function goToStep2() {
-    step1.classList.remove('active');
-    step2.classList.add('active');
-    bar1.classList.remove('active'); bar1.classList.add('done');
-    bar2.classList.add('active');
-    stepLabel.textContent = 'Step 2 of 2';
-    overlay.querySelector('.modal').scrollTop = 0;
-  }
-  function goToStep1() {
-    step2.classList.remove('active');
-    step1.classList.add('active');
-    bar2.classList.remove('active');
-    bar1.classList.remove('done'); bar1.classList.add('active');
-    stepLabel.textContent = 'Step 1 of 2';
-  }
-  function showSuccess() {
-    step2.classList.remove('active');
-    success.classList.add('active');
-    bar2.classList.remove('active'); bar2.classList.add('done');
-    stepLabel.textContent = 'Done';
-    overlay.querySelector('.modal').scrollTop = 0;
-  }
 
-  document.querySelectorAll('[data-modal]').forEach(el => {
-    el.addEventListener('click', e => { e.preventDefault(); lastFocused = e.currentTarget; openModal(); });
-  });
+  function goToStep2() { step1.classList.remove('active'); step2.classList.add('active'); bar1.classList.remove('active'); bar1.classList.add('done'); bar2.classList.add('active'); stepLabel.textContent = 'Step 2 of 2'; if (modalEl) modalEl.scrollTop = 0; setTimeout(() => { const r = document.getElementById('m-revenue'); if (r) r.focus(); }, 60); }
+  function goToStep1() { step2.classList.remove('active'); step1.classList.add('active'); bar2.classList.remove('active'); bar1.classList.remove('done'); bar1.classList.add('active'); stepLabel.textContent = 'Step 1 of 2'; }
+  function showSuccess(qualified) { step2.classList.remove('active'); (qualified ? success : nurture).classList.add('active'); bar2.classList.remove('active'); bar2.classList.add('done'); stepLabel.textContent = 'Done'; if (modalEl) modalEl.scrollTop = 0; }
+
+  document.querySelectorAll('[data-modal]').forEach(el => { el.addEventListener('click', e => { e.preventDefault(); lastFocused = e.currentTarget; openModal(); }); });
   document.getElementById('modalClose').addEventListener('click', closeModal);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal(); });
 
-  // Step 1 → Step 2 (validate contact fields)
+  function buildLead(extra) { return Object.assign({ name: (document.getElementById('m-name').value || '').trim(), email: (document.getElementById('m-email').value || '').trim(), revenue: document.getElementById('m-revenue').value, industry: document.getElementById('m-industry').value, friction: (document.getElementById('m-friction').value || '').trim(), other: (document.getElementById('m-other').value || '').trim(), website: (document.getElementById('m-website').value || '').trim(), source: LEAD_SOURCE }, extra || {}); }
+
   document.getElementById('nextBtn').addEventListener('click', () => {
-    const nameEl = document.getElementById('m-name');
-    const emailEl = document.getElementById('m-email');
-    const name  = nameEl.value.trim();
-    const email = emailEl.value.trim();
-    if (!name)  { alert('Please add your name.');  nameEl.focus();  return; }
-    if (!email) { alert('Please add your email.'); emailEl.focus(); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert('Please enter a valid email address.'); emailEl.focus(); return; }
+    const name  = document.getElementById('m-name').value.trim();
+    const email = document.getElementById('m-email').value.trim();
+    let ok = true;
+    if (!name) { setError('m-name', 'Please enter your name.'); ok = false; }
+    if (!email) { setError('m-email', 'Please enter your email.'); ok = false; }
+    else if (!EMAIL_RE.test(email)) { setError('m-email', 'Please enter a valid email address.'); ok = false; }
+    if (!ok) { focusFirstError('#step1'); return; }
+    step1Done = true;
+    track('lead_step1_complete', { source: LEAD_SOURCE });
     goToStep2();
   });
   document.getElementById('backBtn').addEventListener('click', goToStep1);
 
-  // Step 2 → submit
-  document.getElementById('submitBtn').addEventListener('click', () => {
+  document.getElementById('submitBtn').addEventListener('click', async () => {
     const revenue  = document.getElementById('m-revenue').value;
-    const industry = document.getElementById('m-industry').value;
     const friction = document.getElementById('m-friction').value.trim();
-    if (!revenue)  { alert('Please select your annual revenue.'); document.getElementById('m-revenue').focus();  return; }
-    if (!industry) { alert('Please select your industry.');       document.getElementById('m-industry').focus(); return; }
-    if (!friction) { alert('Please tell us what you need built or fixed.'); document.getElementById('m-friction').focus(); return; }
-
-    const data = {
-      name:     document.getElementById('m-name').value.trim(),
-      email:    document.getElementById('m-email').value.trim(),
-      phone:    document.getElementById('m-phone').value.trim(),
-      revenue,
-      industry,
-      friction,
-      whynow:   document.getElementById('m-whynow').value.trim(),
-      other:    document.getElementById('m-other').value.trim(),
-      source:   LEAD_SOURCE,
-      website:  document.getElementById('m-website').value.trim(),  // honeypot — humans leave blank
-    };
-
+    let ok = true;
+    if (!revenue) { setError('m-revenue', 'Please select your revenue range.'); ok = false; }
+    if (!friction) { setError('m-friction', 'One line is all we need.'); ok = false; }
+    if (!ok) { focusFirstError('#step2'); return; }
+    const qualified = revenue !== REVENUE_FLOOR;
+    const notice = document.getElementById('modalNotice');
+    const btn = document.getElementById('submitBtn');
+    if (notice) notice.classList.remove('show');
+    btn.disabled = true; btn.style.opacity = '0.7';
+    let sent = false;
     if (LEAD_ENDPOINT.startsWith('http')) {
-      const payload = JSON.stringify(data);
-      let sent = false;
-      try {
-        const blob = new Blob([payload], { type: 'text/plain;charset=utf-8' });
-        sent = navigator.sendBeacon && navigator.sendBeacon(LEAD_ENDPOINT, blob);
-      } catch (e) { sent = false; }
-      if (!sent) {
-        fetch(LEAD_ENDPOINT, {
-          method: 'POST', mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-          body: payload, keepalive: true,
-        }).catch(err => console.error('Lead capture failed:', err));
-      }
-    }
-
-    console.log('Lead submitted:', data);
-    showSuccess();
-
-    const calUrl = document.getElementById('calBtn').href;
-    setTimeout(() => { window.location.href = calUrl; }, 3200);
+      try { const res = await fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(buildLead({ stage: 'complete', qualified: qualified ? 'yes' : 'no' })) }); sent = !!(res && res.ok); } catch (e) { sent = false; }
+    } else { sent = true; }
+    btn.disabled = false; btn.style.opacity = '';
+    if (!sent) { if (notice) notice.classList.add('show'); track('lead_send_fail', { source: LEAD_SOURCE }); return; }
+    submitted = true; clearState();
+    track('lead_submit', { source: LEAD_SOURCE, qualified: qualified ? 'yes' : 'no', revenue: revenue });
+    showSuccess(qualified);
   });
+
+  window.addEventListener('pagehide', () => { if (!step1Done || submitted) return; submitted = true; try { navigator.sendBeacon && navigator.sendBeacon(LEAD_ENDPOINT, new Blob([JSON.stringify(buildLead({ stage: 'abandoned-step2' }))], { type: 'text/plain;charset=utf-8' })); } catch (e) {} });
+
+  (function () { const c = document.getElementById('calBtn'); if (c) c.addEventListener('click', () => track('booking_click', { source: LEAD_SOURCE })); })();
 
   // ── Smooth scroll (non-modal anchor links only) ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
